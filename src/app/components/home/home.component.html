@@ -1,3 +1,41 @@
+<mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    color="warn"
+    maxWidth="auto"
+    proportion="25"
+    slides="5"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="true"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr">
+  <mat-carousel-slide
+      #matCarouselSlide
+      *ngFor="let slide of slides; let i = index"
+      [image]="slide"
+      overlayColor="#880E4F90"
+      [hideOverlay]="false">
+    <div class="carousel-caption">      
+      <h1
+        [ngStyle.gt-md]="{'font-size': '90px' }"
+        [ngStyle.gt-xs]="{'font-size': '55px' }"
+        [ngStyle.gt-xs]="{'font-size': '35px' }"
+        fxHide.xs>
+        Welcome to your <br>
+        PHONEBOOK
+      </h1> 
+      <h1 
+          [ngStyle]="{'font-size': '50px' }"
+          fxHide.gt-xs>
+        PHONEBOOK
+      </h1>        
+    </div>
+  </mat-carousel-slide>  
+</mat-carousel>
+
 <div
     fxLayout="row"
     fxLayout.lt-md="column"

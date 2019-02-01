@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material';
+import { MatCarouselModule } from '@ngmodule/material-carousel'
 
 const MATERIAL_MODULES = [
-  MatIconModule
+  MatIconModule,
+  MatCarouselModule
 ];
 
 @NgModule({

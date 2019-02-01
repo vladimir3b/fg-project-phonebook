@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   // PROPERTIES
+  public slides: Array<string>;
   public content: Array<{
     title: string;
     paragraph: string;
@@ -16,6 +17,11 @@ export class HomeComponent {
 
   // CONSTRUCTOR
   constructor() {
+    this.slides = [
+      'assets/img/img1.jpg',
+      'assets/img/img2.jpg',
+      'assets/img/img3.jpg',
+    ]
     this.content = [
       {
         title: 'quick',
