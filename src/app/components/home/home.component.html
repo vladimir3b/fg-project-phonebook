@@ -5,8 +5,8 @@
     interval="5000"
     color="warn"
     maxWidth="auto"
-    proportion="25"
-    slides="5"
+    proportion="35"
+    slides="3"
     [loop]="true"
     [hideArrows]="false"
     [hideIndicators]="true"
@@ -22,13 +22,9 @@
       <div
          [ngClass.gt-sm]="['caption-big-screen']"
          [ngClass.lt-md]="['caption-medium-screen']"
-          fxHide.xs>
-        Welcome to your<br>PHONEBOOK
-      </div>
-      <div
-          [ngStyle]="{'font-size': '50px' }"
-          fxHide.gt-xs>
-        PHONEBOOK
+         [ngClass.xs]="['caption-small-screen']">
+         Welcome to your<br>
+         <span>PHONEBOOK</span>
       </div>
     </div>
   </mat-carousel-slide>

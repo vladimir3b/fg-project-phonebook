@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fg-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   // PROPERTIES
+  private _width: number;
+  private _heigth: number;
   public slides: Array<string>;
   public content: Array<{
     title: string;
@@ -42,6 +44,23 @@ export class HomeComponent {
         icon: 'sentiment_satisfied_alt'
       }
     ];
+    this.onResize();
+  }
+
+  // LIFE CYCLE HOOKS
+   public ngOnInit(): void {
+    window.addEventListener('resize', this.onResize);
+  }
+
+  // METHODS
+  public onResize(): void {
+    this._width = document.body.clientWidth;
+    this._heigth = document.body.clientHeight;
+    console.log(this._heigth);
+  }
+
+  public carouselProportion(): number {
+    return this._heigth / 2;
   }
 
 }

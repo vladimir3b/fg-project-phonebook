@@ -8,7 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   // PROPERTIES
+
   @Output() public toggleSideBar: EventEmitter<void>;
+
 
   // CONSTRUCTOR
   constructor() {
@@ -16,11 +18,12 @@ export class HeaderComponent implements OnInit {
   }
 
   // LIFE CYCLE HOOKS
-  public ngOnInit(): void {}
+  public ngOnInit(): void { }
 
   // METHODS
   public openSidebar(): void {
     this.toggleSideBar.emit();
   }
+
 
 }
