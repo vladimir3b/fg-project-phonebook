@@ -1,3 +1,4 @@
+<!-- Carousel -->
 <mat-carousel
     timings="250ms ease-in"
     [autoplay]="true"
@@ -16,75 +17,51 @@
       #matCarouselSlide
       *ngFor="let slide of slides; let i = index"
       [image]="slide"
-      overlayColor="#880E4F90"
       [hideOverlay]="false">
-    <div class="carousel-caption">      
-      <h1
-        [ngStyle.gt-md]="{'font-size': '90px' }"
-        [ngStyle.gt-xs]="{'font-size': '55px' }"
-        [ngStyle.gt-xs]="{'font-size': '35px' }"
-        fxHide.xs>
-        Welcome to your <br>
-        PHONEBOOK
-      </h1> 
-      <h1 
+    <div class="carousel-caption">
+      <div
+         [ngClass.gt-sm]="['caption-big-screen']"
+         [ngClass.lt-md]="['caption-medium-screen']"
+          fxHide.xs>
+        Welcome to your<br>PHONEBOOK
+      </div>
+      <div
           [ngStyle]="{'font-size': '50px' }"
           fxHide.gt-xs>
         PHONEBOOK
-      </h1>        
+      </div>
     </div>
-  </mat-carousel-slide>  
+  </mat-carousel-slide>
 </mat-carousel>
 
+<!-- Page content -->
 <div
+    class="page-content"
     fxLayout="row"
     fxLayout.lt-md="column"
     fxLayoutAlign="space-around stretch"
     [ngStyle.gt-sm]="{ 'padding': '0 100px' }"
     [ngStyle.lt-md]="{ 'padding': '0 60px' }">
-  <section fxFlex.gt-sm="25">
-    <h2 fxHide.lt-md><mat-icon class="big-screen-icon">{{ content[0].icon }}</mat-icon></h2>
-    <h1 [ngStyle.xs]="{ 'font-size': '20px', 'letter-spacing': '8px' }">{{ content[0].title }}</h1>
-    <div fxLayout.lt-md="row">
-      <h3
-          fxHide.gt-sm
-          fxShow.lt-md
-          fxHide.xs>
-        <mat-icon class="small-screen-icon">
-          {{ content[0].icon }}
+  <section fxFlex.gt-sm="25" *ngFor="let section of content">
+    <div fxLayoutAlign="center center" >
+      <div
+          fxLayoutAlign="center center"
+          [ngClass.gt-sm]="['icon-big-screen']"
+          [ngClass.lt-md]="['icon-medium-screen']"
+          fxHide.lt-sm>
+        <mat-icon>
+          {{ section.icon }}
         </mat-icon>
-      </h3>
-      <p [ngStyle.lt-md]="{'padding-bottom': '25px'}">{{ content[0].paragraph }}</p>
+      </div>
     </div>
+    <h1
+        [ngClass.gt-sm]="['title-big-screen']"
+        [ngClass.lt-md]="['title-medium-screen']"
+        [ngClass.xs]="['title-small-screen']">
+      {{ section.title }}
+    </h1>
+    <p>{{ section.paragraph }}</p>
+    <hr fxHide.gt-xs>
   </section>
-  <section fxFlex.gt-sm="25">
-    <h2 fxHide.lt-md><mat-icon class="big-screen-icon">{{ content[1].icon }}</mat-icon></h2>
-    <h1 [ngStyle.xs]="{ 'font-size': '20px', 'letter-spacing': '8px' }">{{ content[1].title }}</h1>
-    <div fxLayout.lt-md="row">
-      <h3
-          fxHide.gt-sm
-          fxShow.lt-md
-          fxHide.xs>
-        <mat-icon class="small-screen-icon">
-          {{ content[1].icon }}
-        </mat-icon>
-      </h3>
-      <p [ngStyle.lt-md]="{'padding-bottom': '25px'}">{{ content[1].paragraph }}</p>
-    </div>
-  </section>
-  <section fxFlex.gt-sm="25">
-    <h2 fxHide.lt-md><mat-icon class="big-screen-icon">{{ content[2].icon }}</mat-icon></h2>
-    <h1 [ngStyle.xs]="{ 'font-size': '20px', 'letter-spacing': '8px' }">{{ content[2].title }}</h1>
-    <div fxLayout.lt-md="row">
-      <h3
-          fxHide.gt-sm
-          fxShow.lt-md
-          fxHide.xs>
-        <mat-icon class="small-screen-icon">
-          {{ content[2].icon }}
-        </mat-icon>
-      </h3>
-      <p [ngStyle.lt-md]="{'padding-bottom': '25px'}">{{ content[2].paragraph }}</p>
-    </div>
-  </section>
+
 </div>

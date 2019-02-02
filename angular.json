@@ -37,7 +37,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/app/_root/index.html",
+            "index": "src/app/index.html",
             "main": "src/app/app.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -45,7 +45,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ "src/app/_root/styles.scss" ]
+            "styles": [ "src/app/styles.scss" ]
           },
           "configurations": {
             "production": {

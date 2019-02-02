@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <button
+      (click)="openSidebar()"
+      mat-icon-button>
+    <mat-icon>
+      menu
+    </mat-icon>
+  </button>
+  <a
+      routerLink="/"
+      routerLinkActive="router-link-active">
+    PHONEBOOK
+  </a>
+    <ul
+        [fxHide.lt-md]="true"
+        fxFlex="auto"
+        fxLayout="row"
+        fxLayoutAlign="end end"
+        fxLayoutGap="20px">
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Create account</a></li>
+      <li><a href="#">View Contacts</a></li>
+      <li><a href="#">Edit Contacts</a></li>
+      <li><a href="#">Sign Out</a></li>
+    </ul>
+</mat-toolbar>

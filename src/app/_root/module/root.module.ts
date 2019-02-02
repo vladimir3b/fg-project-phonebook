@@ -9,20 +9,24 @@ import { RootComponent } from '../component/root.component';
 import { MaterialModule } from './../../modules/material.module';
 import { HomeComponent } from '../../components/home/home.component';
 import { RootRouterModule } from './../../modules/routers/root-router.module';
+import { HeaderComponent } from 'src/app/components/header/header.component';
+import { SideNavigationComponent } from '../../components/side-navigation/side-navigation.component';
 
 @NgModule({
   declarations: [
     RootComponent,
     SignInComponent,
     SignUpComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,
     RootRouterModule,
     FlexLayoutModule,
     MaterialModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule
   ],
   bootstrap: [ RootComponent ]
 })

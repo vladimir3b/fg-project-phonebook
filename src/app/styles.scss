@@ -1,0 +1,24 @@
+@import './_styles/_reset.scss';
+@import '~@angular/material/theming';
+@import './_styles/theme.scss';
+@import './_styles/variables.scss';
+@include mat-core();
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 10px;
+  color: $color-accent;
+}
+
+// Carousel picture overlay color
+.carousel-slide-overlay {
+  background-color: rgba(darken($color-accent, 20), 0.5) !important;
+}
+

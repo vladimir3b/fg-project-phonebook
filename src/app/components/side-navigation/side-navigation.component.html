@@ -1,0 +1,13 @@
+<mat-drawer-container
+    class="side-navigation"
+    [hasBackdrop]="true">
+  <mat-drawer
+      #sideNavigation
+      mode="push">
+    some text
+  </mat-drawer>
+  <mat-drawer-content>
+    <fg-header (toggleSideBar)="sideNavigation.toggle()"></fg-header>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
