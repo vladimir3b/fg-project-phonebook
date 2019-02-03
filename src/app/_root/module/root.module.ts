@@ -11,6 +11,7 @@ import { HomeComponent } from '../../components/home/home.component';
 import { RootRouterModule } from './../../modules/routers/root-router.module';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { SideNavigationComponent } from '../../components/side-navigation/side-navigation.component';
+import { NavigationMenuComponent } from '../../components/navigation-menu/navigation-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SideNavigationComponent } from '../../components/side-navigation/side-n
     SignUpComponent,
     HomeComponent,
     HeaderComponent,
-    SideNavigationComponent
+    SideNavigationComponent,
+    NavigationMenuComponent
   ],
   imports: [
     BrowserModule,

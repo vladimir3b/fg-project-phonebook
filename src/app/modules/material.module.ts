@@ -3,7 +3,8 @@ import {
   MatIconModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatButtonModule
+  MatButtonModule,
+  MatListModule
 } from '@angular/material';
 import { MatCarouselModule } from '@ngmodule/material-carousel'
 
@@ -12,7 +13,8 @@ const MATERIAL_MODULES = [
   MatCarouselModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatButtonModule
+  MatButtonModule,
+  MatListModule
 ];
 
 @NgModule({

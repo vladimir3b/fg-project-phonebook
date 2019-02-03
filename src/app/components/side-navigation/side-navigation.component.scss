@@ -1,5 +1,24 @@
 @import '../../_styles/variables.scss';
 
 .sidebar-navigation {
-  background-color: $color-background-side-navigation
+  // background-color: $color-background-side-navigation;
+ background-image:
+    linear-gradient(
+      145deg,
+      rgba($color-background-side-navigation, 0.6) 100px,
+      rgba($color-background-side-navigation, 1),
+      $color-primary
+    ),
+    url('/assets/img/img5.jpg');
+  background-repeat: no-repeat;
+  background-size: 1600px;;
+  background-position: center top;
+}
+
+hr {
+  margin: 10px 20px 0 20px;
+}
+
+.caption {
+  margin: 20px 20px 0px 20px;
 }

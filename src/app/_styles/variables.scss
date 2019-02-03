@@ -3,10 +3,10 @@
 // Color pallets
 $COLOR-PRIMARY: $mat-pink;
 $COLOR-ACCENT: $mat-cyan;
-$COLOR-WARN: $mat-lime;
+$COLOR-WARN: $mat-amber;
 
 // $COLOR-PRIMARY: $mat-red;
-// $COLOR-ACCENT: $mat-brown;
+// $COLOR-ACCENT: $mat-indigo;
 // $COLOR-WARN: $mat-amber;
 
 // Color positions in the pallette
@@ -16,7 +16,7 @@ $PALETTE-POSITION-SIDE-NAVIGATION-BACKGROUND: 200;
 
 // Text color brightness factors
 $FACTOR-LIGHTEN-TEXT-COLOR: 45;
-$FACTOR-DARKEN-TEXT-COLOR: 15;
+$FACTOR-DARKEN-TEXT-COLOR: 35;
 
 // Set colors
 $color-primary: map-get($COLOR-PRIMARY, $PALETTE-POSITION-MAIN-COLOR);

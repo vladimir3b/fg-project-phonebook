@@ -6,6 +6,10 @@
 @include mat-core();
 
 
+p {
+  color: $color-text-dark;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -35,6 +39,8 @@ hr {
   @include text-outline(black);
   font-size: 35px;
 }
+
+
 
 // Carousel picture overlay color
 .carousel-slide-overlay {

@@ -1,6 +1,6 @@
 # Fg Project - Phone Book
 
-This is a simple phonebook created with Angular 7, NGRX, Angular Material, AngularFire and Google Firebase
+This is a simple phonebook created with Angular 7, NgRx, Angular Material, AngularFire and Google Firebase
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 

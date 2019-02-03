@@ -1,12 +1,23 @@
+
 <mat-drawer-container
     class="side-navigation"
     [hasBackdrop]="true">
   <mat-drawer
-      fxFlex="250px"
+      fxFlex="300px"
+      fxHide.gt-sm
       class="sidebar-navigation"
       #sideNavigation
-      mode="push">
-    some text
+      mode="over">
+    <div class="caption">
+      <div class="logo">PHONEBOOK</div>
+      <div>
+        <strong>Logged user: </strong>
+        David Bowie
+      </div>
+    </div>
+    <hr>
+    <fg-navigation-menu></fg-navigation-menu>
+    <hr>
   </mat-drawer>
   <mat-drawer-content>
     <fg-header (toggleSideBar)="sideNavigation.toggle()"></fg-header>

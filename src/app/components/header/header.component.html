@@ -1,26 +1,20 @@
 <mat-toolbar color="primary">
   <button
+      fxHide.gt-sm
       (click)="openSidebar()"
       mat-icon-button>
     <mat-icon>
       menu
     </mat-icon>
   </button>
+  &nbsp;&nbsp;
   <a
       routerLink="/"
       routerLinkActive="router-link-active">
     <span class="logo">PHONEBOOK</span>
   </a>
-    <ul
-        [fxHide.lt-md]="true"
-        fxFlex="auto"
-        fxLayout="row"
-        fxLayoutAlign="end end"
-        fxLayoutGap="20px">
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Create account</a></li>
-      <li><a href="#">View Contacts</a></li>
-      <li><a href="#">Edit Contacts</a></li>
-      <li><a href="#">Sign Out</a></li>
-    </ul>
+  <fg-navigation-menu
+      fxHide.lt-md
+      fxFlex="auto">
+  </fg-navigation-menu>
 </mat-toolbar>

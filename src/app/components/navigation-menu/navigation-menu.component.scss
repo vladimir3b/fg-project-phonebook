@@ -1,0 +1,18 @@
+@import '../../_styles/variables.scss';
+@import '../../_styles/function.scss';
+
+a.menu-header {
+    &:hover, &active{
+      color: $color-accent;
+      @include text-outline($color-text-light);
+    }
+    color: $color-text-light;
+
+  }
+
+a.menu-side-navigation {
+  &:hover, &active{
+    color: $color-primary;
+  }
+  color: $color-text-dark;
+}
