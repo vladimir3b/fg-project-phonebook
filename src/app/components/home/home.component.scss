@@ -65,7 +65,7 @@ $ICON-SIZE-SMALL-SCREEN: 70px;
       span {
         font-size: 150px;
         color: $color-text-light;
-        @include title-shadow();
+        @include text-3d();
       }
       font-size: 50px;
       line-height: 150%;
@@ -76,7 +76,7 @@ $ICON-SIZE-SMALL-SCREEN: 70px;
       span {
         font-size: 75px;
         color: $color-text-light;
-        @include title-shadow();
+        @include text-3d();
       }
       font-size: 25px;
       line-height: 150%;
@@ -87,7 +87,7 @@ $ICON-SIZE-SMALL-SCREEN: 70px;
       span {
         font-size: 45px;
         color: $color-text-light;
-        @include title-shadow();
+        @include text-3d();
       }
       font-size: 15px;
       line-height: 150%;

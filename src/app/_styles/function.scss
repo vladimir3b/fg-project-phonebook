@@ -1,4 +1,4 @@
-@mixin outline($color) {
+@mixin text-outline($color) {
   text-shadow:
     -1px -1px 0 $color,
     1px -1px 0 $color,
@@ -10,7 +10,7 @@
     0 -2px 0 $color;
 }
 
-@mixin title-shadow() {
+@mixin text-3d() {
   text-shadow:
     0 1px 0 #ccc,
     0 2px 0 #c9c9c9,

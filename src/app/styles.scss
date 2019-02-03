@@ -17,7 +17,7 @@ h1 {
   text-align: center;
   letter-spacing: 10px;
   color: $color-accent;
-  @include outline($color-accent);
+  @include text-outline($color-accent);
 }
 
 hr {
@@ -27,6 +27,13 @@ hr {
   border-top: 2px solid $color-warn;
   margin: 1em 0;
   padding: 0;
+}
+
+.logo {
+  font-family: 'Bree Serif', serif;
+  color: $color-text-light;
+  @include text-outline(black);
+  font-size: 35px;
 }
 
 // Carousel picture overlay color
