@@ -12,6 +12,7 @@ import { RootRouterModule } from './../../modules/routers/root-router.module';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { SideNavigationComponent } from '../../components/side-navigation/side-navigation.component';
 import { NavigationMenuComponent } from '../../components/navigation-menu/navigation-menu.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavigationMenuComponent } from '../../components/navigation-menu/naviga
     HomeComponent,
     HeaderComponent,
     SideNavigationComponent,
-    NavigationMenuComponent
+    NavigationMenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
