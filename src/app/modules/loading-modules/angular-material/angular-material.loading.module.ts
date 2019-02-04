@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 const LOADING_AND_EXPORTING = {
   declarations: [],
   imports: []
-}
+};
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],

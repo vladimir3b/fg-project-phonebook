@@ -8,14 +8,14 @@ import { DeleteContactDialogComponent } from './components/delete-contact-dialog
 
 const LOADING_AND_EXPORTING = {
   declarations: [
-    EditContactsComponent, 
-    EditContactComponent, 
-    ViewContactsComponent, 
-    ViewContactComponent, 
+    EditContactsComponent,
+    EditContactComponent,
+    ViewContactsComponent,
+    ViewContactComponent,
     DeleteContactDialogComponent
   ],
   imports: []
-}
+};
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],

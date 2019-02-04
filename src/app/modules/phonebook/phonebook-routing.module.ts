@@ -1,10 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+// My imports
+import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
+import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
+
+
+const ROUTERS: Routes = [
+  {
+    path: 'view-contacts',
+    component: ViewContactsComponent
+  },
+  {
+    path: 'edit-contacts',
+    component: EditContactsComponent
+  }
+];
+
+const LOADING_AND_EXPORTING = {
+  declarations: [],
+  imports: []
+};
 
 @NgModule({
-  declarations: [],
+  declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
-    CommonModule
+    RouterModule.forRoot(ROUTERS),
+    ...LOADING_AND_EXPORTING.imports
+  ],
+  exports: [
+    RouterModule,
+    ...LOADING_AND_EXPORTING.declarations,
+    ...LOADING_AND_EXPORTING.imports
   ]
 })
 export class PhonebookRoutingModule { }

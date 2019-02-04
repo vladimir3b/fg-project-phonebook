@@ -6,11 +6,11 @@ import { AngularMaterialLoadingModule } from './angular-material/angular-materia
 
 const LOADING_AND_EXPORTING = {
   declarations: [],
-  imports: [ 
+  imports: [
     AngularfireLoadingModule,
     AngularMaterialLoadingModule
   ]
-}
+};
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],

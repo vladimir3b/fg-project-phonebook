@@ -7,13 +7,13 @@ import { DeleteUserDialogComponent } from './components/delete-user-dialog/delet
 
 const LOADING_AND_EXPORTING = {
   declarations: [
-    LoginComponent, 
+    LoginComponent,
     EditUserComponent,
     SignUpComponent,
     DeleteUserDialogComponent
   ],
   imports: []
-}
+};
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],

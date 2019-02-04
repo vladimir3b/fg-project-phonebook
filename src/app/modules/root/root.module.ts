@@ -1,3 +1,4 @@
+import { RootRoutingModule } from './root-routing.module';
 import { PhonebookModule } from './../phonebook/phonebook.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,7 @@ import { NavigationModule } from '../navigation/navigation.module';
 
 @NgModule({
   declarations: [
-    RootComponent, 
+    RootComponent,
     HomeComponent
   ],
   imports: [
@@ -18,7 +19,8 @@ import { NavigationModule } from '../navigation/navigation.module';
     AuthenticationModule,
     LoadingModulesModule,
     PhonebookModule,
-    NavigationModule
+    NavigationModule,
+    RootRoutingModule
   ],
   bootstrap: [ RootComponent ]
 })

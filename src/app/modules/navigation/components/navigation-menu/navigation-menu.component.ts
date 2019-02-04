@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationMenuComponent implements OnInit {
 
+  // CONSTRUCTOR
   constructor() { }
 
-  ngOnInit() {
+  // LIFE CYCLE HOOKS
+  public ngOnInit(): void {
   }
 
+  // METHODS
+  public onLogout(): void {
+    console.log('logged out');
+  }
 }

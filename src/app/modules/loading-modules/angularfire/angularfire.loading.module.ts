@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 const LOADING_AND_EXPORTING = {
   declarations: [],
   imports: []
-}
+};
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],

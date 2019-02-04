@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'; // we need it when we use routeLink directive
 // My imports
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -13,11 +14,12 @@ const LOADING_AND_EXPORTING = {
     SidebarNavigationComponent
   ],
   imports: []
-}
+};
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
+    RouterModule,
     ...LOADING_AND_EXPORTING.imports
   ],
   exports: [
