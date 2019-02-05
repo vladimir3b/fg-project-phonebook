@@ -1,6 +1,15 @@
-<p>
-  sidebar-navigation works!
-</p>
-<fg-header></fg-header>
-<ng-content></ng-content>
-<fg-footer></fg-footer>
+<mat-drawer-container
+    [hasBackdrop]="true">
+  <mat-drawer
+      fxFlex
+      #sideNavigation
+      mode="side">
+    <a routerLink="/login"><span class="logo">PHONEBOOK</span></a>
+    <hr>
+  </mat-drawer>
+  <mat-drawer-content>
+    <fg-header (toggleSideBar)="sideNavigation.toggle()"></fg-header>
+    <ng-content></ng-content>
+    <fg-footer></fg-footer>
+  </mat-drawer-content>
+</mat-drawer-container>

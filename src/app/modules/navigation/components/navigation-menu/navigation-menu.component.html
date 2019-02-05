@@ -1,10 +1,11 @@
-<p>
-  navigation-menu works!
-</p>
-<ul>
+<ul
+    fxHide.lt-md
+    fxLayout="row"
+    fxLayoutAlign="end end"
+    fxLayoutGap="20px">
   <li><a routerLink="/edit-user">Edit user@change-me.com</a></li>
   <li><a routerLink="/login">Login</a></li>
-  <li><a routerLink="/sign-up">Sign Up</a></li>   
+  <li><a routerLink="/sign-up">Sign Up</a></li>
   <li><a routerLink="/view-contacts">View Contacts</a></li>
   <li><a routerLink="/edit-contacts">Edit Contacts</a></li>
   <li><a (click)="onLogout();">Logout</a></li>

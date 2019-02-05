@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatSidenavModule,
+  MatButtonModule
 } from '@angular/material';
 
 const LOADING_AND_EXPORTING = {
@@ -10,7 +12,9 @@ const LOADING_AND_EXPORTING = {
   imports: [
     MatToolbarModule,
     MatIconModule,
-    FlexLayoutModule 
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatButtonModule
   ]
 };
 

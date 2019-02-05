@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'fg-header',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  // PROPERTIES
+  @Output() public toggleSideBar: EventEmitter<void>;
 
-  ngOnInit() {
+  // CONSTRUCTOR
+  constructor() {
+    this.toggleSideBar = new EventEmitter();
   }
+
+  // LIFE CYCLE HOOKS
+  public ngOnInit(): void { }
+
+  // METHODS
+  public openSidebar(): void {
+    this.toggleSideBar.emit();
+  }
+
 
 }
