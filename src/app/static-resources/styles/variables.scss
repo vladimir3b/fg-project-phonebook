@@ -1,0 +1,106 @@
+// DO NOT CHANGE THESE VALUES!!!
+@import '~@angular/material/theming';
+@import 'constants.scss';
+@include mat-core();
+
+/**
+ *  Variables
+ */
+
+// Color values
+$primary-color: map-get($PRIMARY_COLOR, 500);
+$primary-color-light: map-get($PRIMARY_COLOR, 200);
+$primary-color-dark: map-get($PRIMARY_COLOR, 900);
+
+$accent-color: map-get($ACCENT_COLOR, 500);
+$accent-color-light: map-get($ACCENT_COLOR, 200);
+$accent-color-dark: map-get($ACCENT_COLOR, 900);
+
+$reserved-color: map-get($RESERVED_COLOR, 500);
+$reserved-color-light: map-get($RESERVED_COLOR, 200);
+$reserved-color-dark: map-get($RESERVED_COLOR, 900);
+
+$warn-color: map-get($WARN_COLOR, 500);
+$warn-color-light: map-get($WARN_COLOR, 200);
+$warn-color-dark: map-get($WARN_COLOR, 900);
+
+$text-color-light: map-get($TEXT_COLOR, 50);
+$text-color-dark: map-get($TEXT_COLOR, 900);
+
+$very-light-color: $VERY_LIGHT_COLOR;
+$very-dark-color: $VERY_DARK_COLOR;
+
+// HTML elements
+$textTags: ('a', 'p', 'li', 'ul', 'span', 'div');
+$headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+
+/**
+ * Functions and mixins
+ */
+@function title-size($title) {
+  // @error $title;
+  @if $title == 'h1' {
+    @return $H1;
+  }
+  @if $title == 'h2' {
+    @return $H2;
+  }
+  @if $title == 'h3' {
+    @return $H3;
+  }
+  @if $title == 'h4' {
+    @return $H4;
+  }
+  @if $title == 'h5' {
+    @return $H5;
+  }
+  @if $title  == 'h6' {
+    @return $H6;
+  }
+}
+
+@mixin text-outline($color) {
+  text-shadow:
+    -1px -1px 0 $color,
+    1px -1px 0 $color,
+    -1px 1px 0 $color,
+    1px 1px 0 $color,
+    -2px 0 0 $color,
+    2px 0 0 $color,
+    0 2px 0 $color,
+    0 -2px 0 $color;
+}
+
+@mixin text-3d() {
+  text-shadow:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+}
+
+
+/**
+ * Angular material theme
+ */ 
+
+// Loading color themes
+$color-palette-primary: mat-palette($PRIMARY_COLOR);
+$color-palette-accent: mat-palette($ACCENT-COLOR);
+$color-palette-warn: mat-palette($WARN-COLOR);
+
+// Creating and loading material theme
+$phonebook-theme: mat-light-theme(
+  $color-palette-primary,
+  $color-palette-accent,
+  $color-palette-warn
+);
+@include angular-material-theme($phonebook-theme);

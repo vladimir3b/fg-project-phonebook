@@ -1,1 +1,17 @@
-<fg-navigation-menu></fg-navigation-menu>
+<mat-toolbar color="primary">
+  <button
+      fxHide.gt-sm
+      (click)="openSidebar()"
+      mat-icon-button>
+    <mat-icon>
+      menu
+    </mat-icon>
+  </button>
+  &nbsp;&nbsp;
+  <a routerLink="/login"><span class="logo">PHONEBOOK</span></a>
+  <fg-navigation-menu
+      fxHide.lt-md
+      fxFlex="auto">
+  </fg-navigation-menu>
+</mat-toolbar>
+

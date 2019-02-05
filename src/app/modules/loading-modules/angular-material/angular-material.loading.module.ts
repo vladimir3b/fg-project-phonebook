@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  MatToolbarModule,
+  MatIconModule
+} from '@angular/material';
 
 const LOADING_AND_EXPORTING = {
   declarations: [],
-  imports: []
+  imports: [
+    MatToolbarModule,
+    MatIconModule,
+    FlexLayoutModule 
+  ]
 };
 
 @NgModule({

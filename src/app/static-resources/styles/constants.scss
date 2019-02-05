@@ -1,8 +1,14 @@
+// You may change these values to personalize the appearance
+@import '~@angular/material/theming';
+
 // Color constants
 $PRIMARY_COLOR: $mat-pink;
 $ACCENT_COLOR: $mat-cyan;
 $RESERVED_COLOR: $mat-amber;
-$TEXT_COLOR: $mat-grey;
+$WARN_COLOR: $mat-red;
+$TEXT_COLOR: $mat-blue-grey;
+$VERY_LIGHT_COLOR: $light-primary-text;
+$VERY_DARK_COLOR: $dark-primary-text;
 
 // Font constants
 $MAIN_TEXT_FONT: 'Roboto', sans-serif;
@@ -12,9 +18,10 @@ $BIG_LETTER_FONT: 'Bungee Inline', cursive;
 
 // Text sizes
 $MAIN_TEXT_SIZE: 1rem;
-$H6: 1.2rem;
-$H5: 1.4rem;
-$H4: 1.6rem;
-$H3: 1.8rem;
-$H2: 2rem;
-$H1: 2.2rem;
+$H6: 1.5rem;
+$H5: 1.9rem;
+$H4: 2.3rem;
+$H3: 2.7rem;
+$H2: 3.1rem;
+$H1: 3.4rem;
+$LOGO_SIZE: 2rem;

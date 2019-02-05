@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 import { SidebarNavigationComponent } from './components/sidebar-navigation/sidebar-navigation.component';
+import { LoadingModulesModule } from './../loading-modules/loading-modules.module';
 
 const LOADING_AND_EXPORTING = {
   declarations: [
@@ -13,7 +14,9 @@ const LOADING_AND_EXPORTING = {
     NavigationMenuComponent,
     SidebarNavigationComponent
   ],
-  imports: []
+  imports: [
+    LoadingModulesModule
+  ]
 };
 
 @NgModule({

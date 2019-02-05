@@ -1,10 +1,32 @@
 @import 'reset.scss';
+@import 'variables.scss';
+@import 'constants.scss';
 
+// General HTML elements
+#{ $textTags } {
+  font-family: $MAIN_TEXT_FONT;
+  color: $text-color-dark;
+  font-size: $MAIN_TEXT_SIZE;
+}
 a {
   cursor: pointer;
 }
 
+#{ $headerTags } {
+  color: $accent-color;
+  font-family: $TITLE_FONT; 
+}
+@each $header in $headerTags {
+  #{ $header } {
+    font-size: title-size($header);
+  }
+}
+
+// General styles
 .logo {
   font-family: 'Bree Serif', serif;
-  font-size: 35px;
+  font-size: $LOGO_SIZE;
+  color: $text-color-light;
+  @include text-outline($text-color-dark);
 }
+

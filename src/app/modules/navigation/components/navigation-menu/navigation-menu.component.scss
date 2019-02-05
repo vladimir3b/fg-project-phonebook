@@ -1,0 +1,9 @@
+@import '../../../../static-resources/styles/variables.scss';
+
+a {
+  &:hover{
+    color: $accent-color;
+    @include text-outline($text-color-light);
+  }
+  color: $text-color-light;
+}
