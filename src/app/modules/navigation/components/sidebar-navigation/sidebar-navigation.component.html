@@ -1,15 +1,24 @@
 <mat-drawer-container
+    fxLayout="row"
     [hasBackdrop]="true">
   <mat-drawer
-      fxFlex
+      fxFlex="220px"
       #sideNavigation
-      mode="side">
+      mode="over">
     <a routerLink="/login"><span class="logo">PHONEBOOK</span></a>
     <hr>
   </mat-drawer>
-  <mat-drawer-content>
-    <fg-header (toggleSideBar)="sideNavigation.toggle()"></fg-header>
-    <ng-content></ng-content>
-    <fg-footer></fg-footer>
+  <mat-drawer-content
+      fxFill
+      fxLayout="column">
+    <header>
+      <fg-header (toggleSideBar)="sideNavigation.toggle()"></fg-header>
+    </header>
+    <section fxFlex>
+        <ng-content></ng-content>
+    </section>
+    <footer fxFlex="110px">
+        <fg-footer></fg-footer>
+    </footer>
   </mat-drawer-content>
 </mat-drawer-container>

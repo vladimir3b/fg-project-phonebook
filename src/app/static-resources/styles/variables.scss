@@ -59,6 +59,12 @@ $headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
   }
 }
 
+@mixin drop-shadow() {
+  -webkit-box-shadow: 0px 5px 14px 0px rgba(0,0,0,0.21);
+  -moz-box-shadow: 0px 5px 14px 0px rgba(0,0,0,0.21);
+  box-shadow: 0px 5px 14px 0px rgba(0,0,0,0.21);
+}
+
 @mixin text-outline($color) {
   text-shadow:
     -1px -1px 0 $color,
@@ -90,7 +96,7 @@ $headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
 
 /**
  * Angular material theme
- */ 
+ */
 
 // Loading color themes
 $color-palette-primary: mat-palette($PRIMARY_COLOR);

@@ -3,22 +3,50 @@
 @import 'constants.scss';
 
 // General HTML elements
-#{ $textTags } {
-  font-family: $MAIN_TEXT_FONT;
-  color: $text-color-dark;
-  font-size: $MAIN_TEXT_SIZE;
+html, body, mat-drawer-container, mat-drawer {
+  height: 100%;
+}
+
+html, body {
+  overflow: hidden !important;
+}
+
+$textTags: ('a', 'p', 'li', 'ul', 'span', 'div', 'header', 'footer');
+@each $tag in  $textTags {
+  #{ $tag } {
+    &, span, div {
+      font-family: $MAIN_TEXT_FONT;
+      color: $text-color-dark;
+      font-size: $MAIN_TEXT_SIZE;
+    }
+  }
 }
 a {
   cursor: pointer;
 }
 
+footer div, footer span {
+  font-size: $FOOTER_TEXT;
+}
+
+
+$headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
 #{ $headerTags } {
   color: $accent-color;
-  font-family: $TITLE_FONT; 
+  font-family: $TITLE_FONT;
 }
-@each $header in $headerTags {
-  #{ $header } {
-    font-size: title-size($header);
+@each $tag in $headerTags {
+  #{ $tag } {
+    font-size: title-size($tag);
+  }
+}
+
+@each $tag in ('header', 'footer') {
+  #{ $tag } {
+    &, span, div {
+    color: $text-color-light;
+  }
+  @include drop-shadow();
   }
 }
 
