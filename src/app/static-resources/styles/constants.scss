@@ -1,12 +1,20 @@
 // Color constants
-$PRIMARY_COLOR: red;
-$ACCENT_COLOR: blue;
-$RESERVED_COLOR: green;
-$TEXT_COLOR: black;
+$PRIMARY_COLOR: $mat-pink;
+$ACCENT_COLOR: $mat-cyan;
+$RESERVED_COLOR: $mat-amber;
+$TEXT_COLOR: $mat-grey;
 
 // Font constants
 $MAIN_TEXT_FONT: 'Roboto', sans-serif;
 $TITLE_FONT: 'Major Mono Display', monospace;
 $LOGO_FONT: 'Bree Serif', serif;
-$GRAPHICS_FONT: 
-$SPECIAL_FONT: 'Bungee Inline', cursive;
+$BIG_LETTER_FONT: 'Bungee Inline', cursive;
+
+// Text sizes
+$MAIN_TEXT_SIZE: 1rem;
+$H6: 1.2rem;
+$H5: 1.4rem;
+$H4: 1.6rem;
+$H3: 1.8rem;
+$H2: 2rem;
+$H1: 2.2rem;
