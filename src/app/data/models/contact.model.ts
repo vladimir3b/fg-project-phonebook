@@ -1,6 +1,7 @@
 import { groupType, genderType } from './types';
 
-export interface IContactMpdel {
+export interface IContactModel {
+  id?: string;
   firstName: string;
   lastName: string;
   alias?: string;
@@ -11,4 +12,4 @@ export interface IContactMpdel {
   emails?: Array<string>;
   addresses?: Array<string>;
   notes?: string;
-};
+}
