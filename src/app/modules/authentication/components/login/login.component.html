@@ -1,3 +1,28 @@
-<p>
-  login works!
-</p>
+<form
+    class="login-form"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="1.2rem">
+
+  <mat-form-field>
+    <input 
+        matInput
+        type="text"
+        placeholder="Your username or email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input 
+      matInput 
+      type="password"
+      placeholder="Your password">
+  </mat-form-field>
+
+  <button 
+      color="accent"
+      mat-raised-button
+      type="submit">
+    Login
+  </button>
+
+</form>

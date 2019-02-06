@@ -5,7 +5,14 @@ import {
   MatIconModule,
   MatSidenavModule,
   MatButtonModule,
-  MatListModule
+  MatListModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSlideToggleModule,
+  
 } from '@angular/material';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
@@ -18,7 +25,14 @@ const LOADING_AND_EXPORTING = {
     MatSidenavModule,
     MatButtonModule,
     MatListModule,
-    MatCarouselModule
+    MatCarouselModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSlideToggleModule
   ]
 };
 

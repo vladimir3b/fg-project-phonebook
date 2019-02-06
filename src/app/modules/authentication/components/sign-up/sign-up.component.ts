@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { genderType } from 'src/app/data/models/types';
 
 @Component({
   selector: 'fg-sign-up',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  // PROPERTIES
+  public gender: genderType;
 
-  ngOnInit() {
+  // CONSTRUCTOR
+  constructor() {
+    this.gender = 'male';
   }
 
+  // LIFE CYCLE HOOKS
+  public ngOnInit(): void {
+  }
+
+  // METHODS
+  public changeGender(event: boolean):void {
+    this.gender = (event) ? 'male' : 'female';
+  }
 }
