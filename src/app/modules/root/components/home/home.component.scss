@@ -1,0 +1,109 @@
+@import '../../../../static-resources/styles/variables.scss';
+
+$ICON-SIZE-BIG-SCREEN: 100px;
+$ICON-SIZE-SMALL-SCREEN: 70px;
+
+.page-content {
+  h1 {
+    &.title-big-screen {
+      padding: 10px 0 25px 0;
+    }
+    &.title-medium-screen {
+      font-size: $H3;
+      padding: 15px 0 15px 0;
+    }
+    &.title-small-screen {
+      font-size: $H5;
+      padding: 35px 0 15px 0;
+    }
+    text-align: center;
+  }
+
+  .icon-big-screen {
+    mat-icon {
+      font-size: $ICON-SIZE-BIG-SCREEN;
+      width: $ICON-SIZE-BIG-SCREEN;
+      height: $ICON-SIZE-BIG-SCREEN;
+    }
+    margin: $ICON-SIZE-BIG-SCREEN / 3 0 0 0;
+    width: $ICON-SIZE-BIG-SCREEN * 1.5;
+    height: $ICON-SIZE-BIG-SCREEN * 1.5;
+    background-color: $primary-color-dark;
+    color: $text-color-light;
+    border-radius: $ICON-SIZE-BIG-SCREEN * 1;
+  }
+
+  .icon-medium-screen {
+    mat-icon {
+      font-size: $ICON-SIZE-SMALL-SCREEN;
+      width: $ICON-SIZE-SMALL-SCREEN;
+      height: $ICON-SIZE-SMALL-SCREEN;
+    }
+    margin: $ICON-SIZE-SMALL-SCREEN / 1.5 0 0 0;
+    width: $ICON-SIZE-SMALL-SCREEN * 1.5;
+    height: $ICON-SIZE-SMALL-SCREEN * 1.5;
+    background-color: $primary-color-dark;
+    color: $text-color-light;
+    border-radius: $ICON-SIZE-SMALL-SCREEN * 1.5;;
+  }
+
+  p {
+    &::first-letter {
+      color: $primary-color-dark;
+      float: left;
+      font-size: 5em;
+      margin: .2em .1em .2em 0;
+      font-family: 'Bungee Inline', cursive;
+    }
+    line-height: 200%;
+    margin: 0 auto;
+  }
+
+}
+
+.carousel-caption {
+  div {
+    &.caption-big-screen {
+      span {
+        font-size: 150px;
+        color: $text-color-light;
+        @include text-3d();
+      }
+      font-size: 50px;
+      line-height: 150%;
+      text-align: right;
+      color: $reserved-color;
+    }
+    &.caption-medium-screen {
+      span {
+        font-size: 75px;
+        color: $text-color-light;
+        @include text-3d();
+      }
+      font-size: 25px;
+      line-height: 150%;
+      text-align: right;
+      color: $reserved-color;
+    }
+    &.caption-small-screen {
+      span {
+        font-size: 45px;
+        color: $text-color-light;
+        @include text-3d();
+      }
+      font-size: 15px;
+      line-height: 150%;
+      text-align: right;
+      color: $reserved-color;
+    }
+    font-family: 'Bree Serif', serif;
+    color: $text-color-light;
+    text-align: center;
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,9 +1,17 @@
 @import '../../../../static-resources/styles/variables.scss';
 
-a {
-  &:hover{
+a.menu-header {
+  &:hover, &active{
     color: $accent-color;
     @include text-outline($text-color-light);
   }
   color: $text-color-light;
+
+}
+
+a.menu-side-navigation {
+&:hover, &active{
+  color: $primary-color;
+}
+color: $text-color-dark;
 }

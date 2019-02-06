@@ -11,7 +11,7 @@ html, body {
   overflow: hidden !important;
 }
 
-$textTags: ('a', 'p', 'li', 'ul', 'span', 'div', 'header', 'footer');
+$textTags: ('a', 'p', 'li', 'ul', 'header', 'footer');
 @each $tag in  $textTags {
   #{ $tag } {
     &, span, div {
@@ -27,6 +27,10 @@ a {
 
 footer div, footer span {
   font-size: $FOOTER_TEXT;
+}
+
+footer {
+  margin-top: 200px;
 }
 
 
@@ -58,3 +62,14 @@ $headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
   @include text-outline($text-color-dark);
 }
 
+.logo-small {
+  font-family: 'Bree Serif', serif;
+  font-size: $LOGO_SIZE_SMALL;
+  color: $text-color-light;
+  @include text-outline($text-color-dark);  
+}
+
+// Carousel picture overlay color
+.carousel-slide-overlay {
+  background-color: rgba(darken($accent-color, 20), 0.5) !important;
+}

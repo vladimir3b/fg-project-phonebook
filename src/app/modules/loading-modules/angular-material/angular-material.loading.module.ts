@@ -4,8 +4,10 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatSidenavModule,
-  MatButtonModule
+  MatButtonModule,
+  MatListModule
 } from '@angular/material';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 const LOADING_AND_EXPORTING = {
   declarations: [],
@@ -14,7 +16,9 @@ const LOADING_AND_EXPORTING = {
     MatIconModule,
     FlexLayoutModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule,
+    MatCarouselModule
   ]
 };
 

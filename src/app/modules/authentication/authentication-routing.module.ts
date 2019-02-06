@@ -1,9 +1,9 @@
-import { DeleteUserDialogComponent } from './components/delete-user-dialog/delete-user-dialog.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // My imports
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 const ROUTERS: Routes = [
   {
@@ -16,7 +16,7 @@ const ROUTERS: Routes = [
   },
   {
     path: 'edit-user',
-    component: DeleteUserDialogComponent
+    component: EditUserComponent
   }
 ];
 

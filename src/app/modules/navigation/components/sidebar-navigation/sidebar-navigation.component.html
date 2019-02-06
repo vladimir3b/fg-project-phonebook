@@ -1,4 +1,4 @@
-<mat-drawer-container
+<!-- <mat-drawer-container
     fxLayout="row"
     [hasBackdrop]="true">
   <mat-drawer
@@ -13,6 +13,46 @@
       fxLayout="column">
     <header>
       <fg-header (toggleSideBar)="sideNavigation.toggle()"></fg-header>
+    </header>
+    <section fxFlex>
+        <ng-content></ng-content>
+    </section>
+    <footer fxFlex="110px">
+        <fg-footer></fg-footer>
+    </footer>
+  </mat-drawer-content>
+</mat-drawer-container> -->
+
+
+
+<mat-drawer-container
+    class="side-navigation"
+    fxLayout="row"
+    [hasBackdrop]="true">
+  <mat-drawer
+      fxFlex="240px"
+      fxHide.gt-sm
+      class="sidebar-navigation"
+      #sideNavigation
+      mode="over">
+    <div class="caption">
+      <div class="logo">PHONEBOOK</div>
+      <div>
+        <strong>Logged user: </strong>
+        {{ userName }}
+      </div>
+    </div>
+    <hr>
+    <fg-navigation-menu></fg-navigation-menu>
+    <hr>
+  </mat-drawer>
+  <mat-drawer-content
+      fxFill
+      fxLayout="column">
+    <header>
+      <fg-header 
+        [userName]="userName"
+        (toggleSideBar)="sideNavigation.toggle()"></fg-header>
     </header>
     <section fxFlex>
         <ng-content></ng-content>

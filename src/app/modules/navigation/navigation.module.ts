@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'; // we need it when we use routeLink directive
 // My imports
@@ -8,11 +9,11 @@ import { SidebarNavigationComponent } from './components/sidebar-navigation/side
 import { LoadingModulesModule } from './../loading-modules/loading-modules.module';
 
 const LOADING_AND_EXPORTING = {
-  declarations: [
+  declarations: [    
     FooterComponent,
     HeaderComponent,
     NavigationMenuComponent,
-    SidebarNavigationComponent
+    SidebarNavigationComponent,
   ],
   imports: [
     LoadingModulesModule
@@ -23,6 +24,7 @@ const LOADING_AND_EXPORTING = {
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
     RouterModule,
+    CommonModule,
     ...LOADING_AND_EXPORTING.imports
   ],
   exports: [

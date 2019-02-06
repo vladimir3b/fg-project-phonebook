@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarNavigationComponent implements OnInit {
 
-  constructor() { }
+  // PROPERTIES
+    public userName: string;
 
+  // CONSTRUCTOR
+  constructor() {
+    this.userName = 'David Bowie';
+  }
+
+  // LIFE CYCLE HOOKS
   ngOnInit() {
   }
 

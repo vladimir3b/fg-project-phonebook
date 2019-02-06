@@ -10,9 +10,19 @@
   &nbsp;&nbsp;
   <a
       fxHide.lt-sm
-      routerLink="/login">
+      routerLink="/">
     <span class="logo">PHONEBOOK</span>
-  </a>
+  </a> 
+  <a      
+      fxHide.gt-xs
+      routerLink="/">
+      <span class="logo-small">PHONEBOOK</span> 
+  </a> 
+  <div fxHide.lt-sm>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <strong>Logged user: </strong>
+      {{ userName }}
+  </div>
   <fg-navigation-menu
       fxHide.lt-md
       fxFlex="auto">
