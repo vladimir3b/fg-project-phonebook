@@ -1,4 +1,17 @@
-<p>
-  view-contacts works!
-</p>
-<fg-view-contact></fg-view-contact>
+<div *ngIf="mobileDevice">
+  This is a mobile device.
+</div>
+<div *ngIf="!mobileDevice">
+  This is a desktop or a laptop computer.
+</div>
+
+<div
+    [ngStyle.lt-md]="{ 'background': 'red' }"
+    [ngStyle.gt-sm]="{ 'background': 'blue' }">
+  <p>
+    &nbsp;
+    <br>
+    <br>
+    &nbsp;
+  </p>
+</div>

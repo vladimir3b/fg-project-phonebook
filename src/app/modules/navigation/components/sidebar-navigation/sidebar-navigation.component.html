@@ -1,9 +1,8 @@
 <mat-drawer-container
-    class="side-navigation"
-    fxLayout="row"
     [hasBackdrop]="true">
+
+  <!-- sidebar -->
   <mat-drawer
-      fxFlex="240px"
       fxHide.gt-sm
       class="sidebar-navigation"
       #sideNavigation
@@ -19,19 +18,21 @@
     <fg-navigation-menu></fg-navigation-menu>
     <hr>
   </mat-drawer>
+
+  <!-- main application window -->
   <mat-drawer-content
-      fxFill
       fxLayout="column">
     <header>
-      <fg-header 
+      <fg-header
         [userName]="userName"
         (toggleSideBar)="sideNavigation.toggle()"></fg-header>
     </header>
-    <section fxFlex>
+    <section fxFlex="auto">
         <ng-content></ng-content>
     </section>
     <footer fxFlex="110px">
         <fg-footer></fg-footer>
     </footer>
   </mat-drawer-content>
+
 </mat-drawer-container>

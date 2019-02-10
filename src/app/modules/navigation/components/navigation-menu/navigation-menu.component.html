@@ -1,5 +1,21 @@
+<!-- Side navigation menu -->
+<mat-nav-list
+    *ngIf="isMobile"
+    fxLayout.lt-md="column"
+    fxLayoutAlign.lt-md="start start">
+  <a
+      *ngFor="let item of menuItems"
+      mat-list-item
+      class="menu-side-navigation"
+      href="{{ item.link }}">
+    <span><mat-icon>{{ item.icon }}</mat-icon></span>&nbsp;&nbsp;
+    {{ item.caption }}
+  </a>
+</mat-nav-list>
+
+<!-- Header navigation -->
 <ul
-    fxHide.lt-md
+    *ngIf="!isMobile"
     fxLayout="row"
     fxLayoutAlign="end end"
     fxLayoutGap="20px">
@@ -12,18 +28,3 @@
     </a>
   </li>
 </ul>
-
-<!-- Side Navigation Menu -->
-<mat-nav-list
-    fxHide.gt-sm
-    fxLayout.lt-md="column"
-    fxLayoutAlign.lt-md="start start">
-  <a
-      *ngFor="let item of menuItems"
-      mat-list-item
-      class="menu-side-navigation"
-      href="{{ item.link }}">
-    <span><mat-icon>{{ item.icon }}</mat-icon></span>&nbsp;&nbsp;
-    {{ item.caption }}
-  </a>
-</mat-nav-list>

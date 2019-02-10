@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 // My imports
 import { LoginComponent } from './components/login/login.component';
@@ -19,6 +20,7 @@ const LOADING_AND_EXPORTING = {
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
+    CommonModule,
     LoadingModulesModule,
     ...LOADING_AND_EXPORTING.imports
   ],

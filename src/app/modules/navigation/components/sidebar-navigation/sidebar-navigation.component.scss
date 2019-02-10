@@ -1,7 +1,8 @@
 @import '../../../../static-resources/styles/variables.scss';
 
 .sidebar-navigation {
- background-image:
+  width: 240px;
+  background-image:
     linear-gradient(
       145deg,
       rgba($accent-color-light, 0.2) 100px,

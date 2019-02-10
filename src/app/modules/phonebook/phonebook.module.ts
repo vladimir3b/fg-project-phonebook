@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
-import { EditContactComponent } from './components/edit-contact/edit-contact.component';
-import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
-import { ViewContactComponent } from './components/view-contact/view-contact.component';
+import { NgModule } from '@angular/core';
+// My imports
 import { DeleteContactDialogComponent } from './components/delete-contact-dialog/delete-contact-dialog.component';
+import { DeviceTypeService } from './../root/services/device-type.service';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
+import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
+import { LoadingModulesModule } from './../loading-modules/loading-modules.module';
+import { ViewContactComponent } from './components/view-contact/view-contact.component';
+import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
 
 const LOADING_AND_EXPORTING = {
   declarations: [
@@ -20,11 +23,14 @@ const LOADING_AND_EXPORTING = {
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
+    CommonModule,
+    LoadingModulesModule,
     ...LOADING_AND_EXPORTING.imports
   ],
   exports: [
     ...LOADING_AND_EXPORTING.declarations,
     ...LOADING_AND_EXPORTING.imports
-  ]
+  ],
+  providers: [ DeviceTypeService ]
 })
 export class PhonebookModule { }
