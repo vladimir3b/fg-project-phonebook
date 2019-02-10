@@ -123,7 +123,7 @@
     <ng-template matStepLabel>Fill out your name</ng-template>
     <ng-container *ngTemplateOutlet="userName"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="end center">
         <button
         color="accent"
         mat-raised-button
@@ -134,11 +134,11 @@
   </mat-step>
 
   <!-- second step -->
-  <mat-step>
+  <mat-step >
     <ng-template matStepLabel>Personal data</ng-template>
     <ng-container *ngTemplateOutlet="personalData"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="end center">
       <button
           color="accent"
           mat-raised-button
@@ -159,7 +159,7 @@
     <ng-template matStepLabel>Account data</ng-template>
     <ng-container *ngTemplateOutlet="accountData"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="end center">
       <button
           color="accent"
           mat-raised-button
@@ -180,7 +180,7 @@
     <ng-template matStepLabel>Set account password</ng-template>
     <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="end center">
       <button
           color="accent"
           mat-raised-button
@@ -201,7 +201,7 @@
     <ng-template matStepLabel>Done</ng-template>
     <ng-container *ngTemplateOutlet="formDone"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="space-between center">
         <button
             color="accent"
             mat-raised-button
@@ -209,7 +209,7 @@
           Next
         </button>&nbsp;
         <button
-            color="accent"
+            color="warn"
             mat-raised-button
             (click)="stepper.reset()"
             matStepperNext>

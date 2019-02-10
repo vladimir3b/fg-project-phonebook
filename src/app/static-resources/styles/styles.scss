@@ -54,6 +54,15 @@ $headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
   }
 }
 
+// Components general styles
+mat-horizontal-stepper {
+  min-height: 360px;
+}
+
+mat-drawer-content {
+  background-color: $text-color-light;
+}
+
 // General styles
 .logo {
   font-family: 'Bree Serif', serif;
@@ -66,7 +75,7 @@ $headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
   font-family: 'Bree Serif', serif;
   font-size: $LOGO_SIZE_SMALL;
   color: $text-color-light;
-  @include text-outline($text-color-dark);  
+  @include text-outline($text-color-dark);
 }
 
 // Carousel picture overlay color

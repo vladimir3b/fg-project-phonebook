@@ -22,3 +22,14 @@ hr {
 .caption {
   margin: 20px 20px 0px 20px;
 }
+
+section>div {
+  margin: 15px;
+}
+
+.caption-desktop {
+  min-width: 960px;
+  background-color: white;
+  padding: 25px;
+  @include drop-shadow();
+}
