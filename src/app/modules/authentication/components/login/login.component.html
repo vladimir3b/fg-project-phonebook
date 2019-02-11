@@ -4,14 +4,18 @@
     fxLayoutAlign="center center"
     fxLayoutGap="1.2rem">
 
-  <mat-form-field>
+  <mat-form-field
+      ngClass.lt-sm="form-input-mobile"
+      ngClass.gt-xs="form-input-desktop">
     <input 
         matInput
         type="text"
         placeholder="Your username or email">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field
+      ngClass.lt-sm="form-input-mobile"
+      ngClass.gt-xs="form-input-desktop">
     <input 
       matInput 
       type="password"
