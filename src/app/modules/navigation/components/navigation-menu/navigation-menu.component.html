@@ -7,7 +7,7 @@
       *ngFor="let item of menuItems"
       mat-list-item
       class="menu-side-navigation"
-      href="{{ item.link }}">
+      routerLink="{{ item.link }}">
     <span><mat-icon>{{ item.icon }}</mat-icon></span>&nbsp;&nbsp;
     {{ item.caption }}
   </a>
@@ -23,7 +23,7 @@
     <a
         *ngIf="item.show"
         class="menu-header"
-        href="{{ item.link }}">
+        routerLink="{{ item.link }}">
       {{ item.caption }}
     </a>
   </li>

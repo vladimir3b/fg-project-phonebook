@@ -10,14 +10,18 @@
       fxLayout="column"
       fxLayoutAlign="center center"
       fxLayoutGap="1.2rem">
-    <mat-form-field>
+    <mat-form-field
+        ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
       <input
           matInput
           type="text"
           required
           placeholder="Please enter your first name">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field
+        ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
       <input
           matInput
           type="text"
@@ -34,7 +38,9 @@
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="1.2rem">
-      <mat-form-field>
+      <mat-form-field
+          ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
         <input
             matInput
             [matDatepicker]="picker"
@@ -58,14 +64,18 @@
       fxLayout="column"
       fxLayoutAlign="center center"
       fxLayoutGap="1.2rem">
-    <mat-form-field>
+    <mat-form-field
+        ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
       <input
           matInput
           type="text"
           placeholder="Your username"
           required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field
+        ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
       <input
           matInput
           type="email"
@@ -82,14 +92,18 @@
       fxLayout="column"
       fxLayoutAlign="center center"
       fxLayoutGap="1.2rem">
-    <mat-form-field>
+    <mat-form-field
+        ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
       <input
           matInput
           type="password"
           placeholder="Enter your password"
           required>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field
+        ngClass.lt-md="form-input-mobile"
+        ngClass.gt-sm="form-input-desktop">
       <input
           matInput
           type="password"
@@ -102,10 +116,11 @@
 <!-- form done -->
 <ng-template #formDone>
   <div
+      class="sign-up-form"
       fxLayout="column"
       fxLayoutAlign="center center"
       fxLayoutGap="1.2rem">
-    <strong>You are now done. </strong>
+    <h3>you are now done </h3>
     <span>Press submit to create your account...</span>
   </div>
 </ng-template>
@@ -138,7 +153,7 @@
     <ng-template matStepLabel>Personal data</ng-template>
     <ng-container *ngTemplateOutlet="personalData"></ng-container>
     <!-- buttons -->
-    <div fxLayoutAlign="end center">
+    <div fxLayoutAlign="space-between center">
       <button
           color="accent"
           mat-raised-button
@@ -159,7 +174,7 @@
     <ng-template matStepLabel>Account data</ng-template>
     <ng-container *ngTemplateOutlet="accountData"></ng-container>
     <!-- buttons -->
-    <div fxLayoutAlign="end center">
+    <div fxLayoutAlign="space-between center">
       <button
           color="accent"
           mat-raised-button
@@ -180,7 +195,7 @@
     <ng-template matStepLabel>Set account password</ng-template>
     <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
     <!-- buttons -->
-    <div fxLayoutAlign="end center">
+    <div fxLayoutAlign="space-between center">
       <button
           color="accent"
           mat-raised-button
@@ -240,7 +255,7 @@
     <ng-template matStepLabel>Fill out your name</ng-template>
     <ng-container *ngTemplateOutlet="userName"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="end center">
         <button
         color="accent"
         mat-raised-button
@@ -255,7 +270,7 @@
     <ng-template matStepLabel>Personal data</ng-template>
     <ng-container *ngTemplateOutlet="personalData"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="space-between center">
       <button
           color="accent"
           mat-raised-button
@@ -276,7 +291,7 @@
     <ng-template matStepLabel>Account data</ng-template>
     <ng-container *ngTemplateOutlet="accountData"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="space-between center">
       <button
           color="accent"
           mat-raised-button
@@ -297,7 +312,7 @@
     <ng-template matStepLabel>Set account password</ng-template>
     <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="space-between center">
       <button
           color="accent"
           mat-raised-button
@@ -318,7 +333,7 @@
     <ng-template matStepLabel>Done</ng-template>
     <ng-container *ngTemplateOutlet="formDone"></ng-container>
     <!-- buttons -->
-    <div>
+    <div fxLayoutAlign="space-between center">
         <button
             color="accent"
             mat-raised-button
@@ -326,7 +341,7 @@
           Next
         </button>&nbsp;
         <button
-            color="accent"
+            color="warn"
             mat-raised-button
             (click)="stepper.reset()"
             matStepperNext>
