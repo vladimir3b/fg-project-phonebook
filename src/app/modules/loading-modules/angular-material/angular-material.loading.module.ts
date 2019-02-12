@@ -12,7 +12,10 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatSlideToggleModule,
-  MatTableModule
+  MatTableModule,
+  MatCardModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
@@ -33,7 +36,10 @@ const LOADING_AND_EXPORTING = {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 };
 

@@ -27,9 +27,11 @@
         [userName]="userName"
         (toggleSideBar)="sideNavigation.toggle()"></fg-header>
     </header>
-    <section fxFlex="auto">     
-      <ng-content></ng-content>   
-    .</section>
+    <section fxFlex="auto">
+      <mat-card >
+        <ng-content></ng-content>
+      </mat-card>
+    </section>
     <footer fxFlex="110px">
         <fg-footer></fg-footer>
     </footer>

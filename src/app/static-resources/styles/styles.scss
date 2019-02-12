@@ -32,7 +32,7 @@ footer div, footer span {
 }
 
 footer {
-  margin-top: 200px;
+  margin-top: 0;
 }
 
 
@@ -63,7 +63,7 @@ mat-horizontal-stepper {
 }
 
 mat-drawer-content {
-  background-color:white;
+  background-color: $text-color-light;
 }
 
 // General styles
