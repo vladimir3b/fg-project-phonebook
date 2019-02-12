@@ -1,0 +1,28 @@
+@import '../../../../static-resources/styles/constants.scss';
+@import '../../../../static-resources/styles/variables.scss';
+
+
+.alias {
+  font-family: $LOGO_FONT;
+  font-size: 1rem;
+  line-height: 75%;
+  margin: 0;
+}
+
+mat-divider {
+  // width: 25rem !important;
+  border: solid 0.03rem $primary-color-light;
+  margin: 0.5rem 0 0.1rem 0 !important;
+}
+
+mat-card {
+  margin: 1rem;
+  max-width: 40rem;
+}
+
+mat-card-content {
+  p {
+    margin: 2.5rem 1rem;
+  }
+  // padding: 2.5rem 1rem 1rem 1rem;
+}

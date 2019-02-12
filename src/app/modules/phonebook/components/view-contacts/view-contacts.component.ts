@@ -33,7 +33,7 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator) private _paginator: MatPaginator;
   @ViewChild(MatSort) _sort: MatSort;
   public contacts: MatTableDataSource<IContactModel>;
-  public displayedColumns: Array<string>;
+  public displayedColumns: Array<{label: string, caption:string}>;
   public expandedElement: IContactModel | null;
 
   // CONSTRUCTOR
@@ -51,19 +51,49 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     this._watchers.push(this._deviceTypeService.mobile.subscribe(((mobileDevice: boolean) => {
       if (mobileDevice) {
         this.displayedColumns = [
-          'index',
-          'alias',
-          'mainPhone'
+          {
+            label: 'index',
+            caption: 'Index',
+          },
+          {
+            label: 'alias',
+            caption: 'Alias'
+          },
+          {
+            label: 'mainPhone',
+            caption: 'Main Phone'
+          }
         ]
       } else {
         this.displayedColumns = [
-          'index',
-          'firstName',
-          'lastName',
-          'alias',
-          'group',
-          'mainPhone',
-          'mainEmail'
+          {
+            label: 'index',
+            caption: 'Index'
+          },
+          {
+            label: 'firstName',
+            caption: 'First Name'
+          },
+          {
+            label: 'lastName',
+            caption: 'Last Name'
+          },
+          {
+            label: 'alias',
+            caption: 'Alias'
+          },
+          {
+            label: 'group',
+            caption: 'Group'
+          },
+          {
+            label: 'mainPhone',
+            caption: 'Main Phone'
+          },
+          {
+            label: 'mainEmail',
+            caption: 'Main Email'
+          }
         ];
       }
     })));
@@ -87,6 +117,19 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
 
   public calculateIndex(localIndex: number): number {
     return this._paginator.pageSize * this._paginator.pageIndex + localIndex + 1;
+  }
+
+  public displayedColumnsLabels(): Array<string> {
+    return this.displayedColumns.map(column => column.label);
+  }
+
+  public detailsAboutContact(contact: IContactModel, label: string): string {
+    switch(label) {
+      case 'index':  return '0';
+      case 'mainPhone': return contact.phones[0];
+      case 'mainEmail': return contact.emails[0];
+      default: return contact[label];
+    }
   }
 
 }

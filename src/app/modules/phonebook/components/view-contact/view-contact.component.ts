@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+// My imports
+import { IContactModel } from './../../../../data/models/contact.model';
 
 @Component({
   selector: 'fg-view-contact',
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewContactComponent implements OnInit {
 
+  // PROPERTIES
+  @Input() public contact: IContactModel;
+
+  // CONSTRUCTOR
   constructor() { }
 
+  // LIFE CYCLE HOOKS
   ngOnInit() {
   }
 

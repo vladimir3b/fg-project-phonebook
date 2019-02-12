@@ -1,3 +1,115 @@
-<p>
-  view-contact works!
-</p>
+<!-- <pre>
+  {{ contact | json}}
+</pre> -->
+<div
+    fxLayout="column wrap"
+    fxLayoutAlign="center center">
+
+  <mat-card>
+    <mat-card-header
+        fxLayout="column">
+      <mat-card-title>
+        <h4>{{ contact.firstName.toLowerCase() }}&nbsp;{{ contact.lastName.toLowerCase() }}</h4>
+        <mat-divider [inset]="true"></mat-divider>
+      </mat-card-title>
+      <mat-card-subtitle
+          class="alias"
+          *ngIf="contact.alias">a.k.a. {{ contact.alias }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+          {{ contact.notes }}
+      </p>
+
+      <div fxLayout="row">
+        <div fxFlex="2rem">
+          <mat-icon class="mat-18">cake</mat-icon>
+        </div>
+        <div fxFlex="auto">{{ contact.birthday }}</div>
+      </div>
+
+    </mat-card-content>
+    <!-- <div
+        class="alias"
+        *ngIf="contact.alias">
+
+    </div>
+    <br>
+    <div fxLayout="row wrap">
+      <div class="caption">
+        Birthday:
+      </div>
+      <div>
+        {{ contact.birthday | date }}
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div class="caption">
+        Gender:
+      </div>
+      <div>
+        {{ contact.gender }}
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div class="caption">
+        Group:
+      </div>
+      <div>
+        {{ contact.group }}
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div class="caption">
+        Phones:
+      </div>
+      <div
+          fxLayout="column wrap"
+          fxLayoutAlign="center end">
+        <div *ngFor="let phone of contact.phones" >
+          {{ phone }}
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div class="caption">
+        Emails:
+      </div>
+      <div
+          fxLayout="column wrap"
+          fxLayoutAlign="center end">
+        <div *ngFor="let email of contact.emails" >
+          {{ email }}
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div class="caption">
+        Address:
+      </div>
+      <div
+          fxLayout="column wrap"
+          fxLayoutAlign="center end">
+        <div *ngFor="let address of contact.addresses" >
+          {{ address }}
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div fxLayout="row wrap">
+      <div class="caption">
+        Notes:
+      </div>
+      <div fxFlex="300px">
+        {{ contact.notes }}
+      </div>
+    </div> -->
+
+  </mat-card>
+</div>

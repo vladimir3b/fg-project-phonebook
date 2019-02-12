@@ -15,7 +15,8 @@ import {
   MatTableModule,
   MatCardModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatDividerModule
 } from '@angular/material';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
@@ -39,7 +40,8 @@ const LOADING_AND_EXPORTING = {
     MatTableModule,
     MatCardModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDividerModule
   ]
 };
 
