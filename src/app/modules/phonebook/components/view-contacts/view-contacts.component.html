@@ -1,17 +1,31 @@
-<div *ngIf="mobileDevice">
-  This is a mobile device.
-</div>
-<div *ngIf="!mobileDevice">
-  This is a desktop or a laptop computer.
-</div>
-
 <div
-    [ngStyle.lt-md]="{ 'background': 'red' }"
-    [ngStyle.gt-sm]="{ 'background': 'blue' }">
-  <p>
-    &nbsp;
-    <br>
-    <br>
-    &nbsp;
-  </p>
+    fxLayout="center center">
+  <table
+      mat-table
+      class="mat-elevation-z8"
+      [dataSource]="contacts">
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>
+        First name
+      </th>
+      <td mat-cell *matCellDef="let contact">
+        {{ contact.firstName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>
+        Last name
+      </th>
+      <td mat-cell *matCellDef="let contact">
+        {{ contact.lastName }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
 </div>

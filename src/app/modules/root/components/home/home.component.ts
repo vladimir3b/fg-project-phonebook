@@ -9,8 +9,6 @@ export class HomeComponent implements OnInit {
 
 
   // PROPERTIES
-  private _width: number;
-  private _height: number;
   public slides: Array<string>;
   public content: Array<{
     title: string;
@@ -45,23 +43,9 @@ export class HomeComponent implements OnInit {
         icon: 'sentiment_satisfied_alt'
       }
     ];
-    this.onResize();
   }
 
   // LIFE CYCLE HOOKS
-  public ngOnInit(): void {
-    window.addEventListener('resize', this.onResize);
-  }
-
-  // METHODS
-  public onResize(): void {
-    this._width = document.body.clientWidth;
-    this._height = document.body.clientHeight;
-    console.log(this._height);
-  }
-
-  public carouselProportion(): number {
-    return this._height / 2;
-  }
+  public ngOnInit(): void { }
 
 }

@@ -5,6 +5,7 @@ import { DeleteContactDialogComponent } from './components/delete-contact-dialog
 import { DeviceTypeService } from './../root/services/device-type.service';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
+import { FakeLoadingDataService } from './../../data/fake-data/fake-loading-data.service';
 import { LoadingModulesModule } from './../loading-modules/loading-modules.module';
 import { ViewContactComponent } from './components/view-contact/view-contact.component';
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
@@ -31,6 +32,9 @@ const LOADING_AND_EXPORTING = {
     ...LOADING_AND_EXPORTING.declarations,
     ...LOADING_AND_EXPORTING.imports
   ],
-  providers: [ DeviceTypeService ]
+  providers: [
+    DeviceTypeService,
+    FakeLoadingDataService
+  ]
 })
 export class PhonebookModule { }

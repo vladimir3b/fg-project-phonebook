@@ -1,6 +1,10 @@
-import { DeviceTypeService } from '../../../root/services/device-type.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { IContactModel } from 'src/app/data/models/contact.model';
+// My imports
+import { CONTACTS } from './../../../../data/fake-data/contacts.fake-data';
+import { DeviceTypeService } from '../../../root/services/device-type.service';
+import { FakeLoadingDataService } from './../../../../data/fake-data/fake-loading-data.service';
 
 
 @Component({
@@ -10,19 +14,32 @@ import { Subscription } from 'rxjs';
 })
 export class ViewContactsComponent implements OnInit, OnDestroy {
 
+  // PROPERTIES
+  private _watchers: Array<Subscription>;
   public mobileDevice: boolean;
-  private _watcher: Subscription;
+  public contacts: Array<IContactModel>;
+  public displayedColumns: Array<string> = [ 'firstName', 'lastName' ];
 
-  constructor(private _deviceTypeService: DeviceTypeService) {
-    this._watcher = _deviceTypeService.mobile.subscribe(((mobileDevice: boolean) => {
-      this.mobileDevice = mobileDevice;
-    }));
+  // CONSTRUCTOR
+  constructor(
+      private _deviceTypeService: DeviceTypeService,
+      private _fakeLoadingData: FakeLoadingDataService
+  ) {
+    this._watchers = [];
+    this.contacts = this._fakeLoadingData.contactsData;
   }
 
-  ngOnInit() { }
+  // LIFE CYCLE HOOKS
+  public ngOnInit(): void {
+    this._watchers.push(this._deviceTypeService.mobile.subscribe(((mobileDevice: boolean) => {
+      this.mobileDevice = mobileDevice;
+    })));
+  }
 
-  ngOnDestroy() {
-    this._watcher.unsubscribe();
+  public ngOnDestroy(): void {
+    this._watchers.forEach((watcher: Subscription) => {
+      watcher.unsubscribe();
+    });
   }
 
 }

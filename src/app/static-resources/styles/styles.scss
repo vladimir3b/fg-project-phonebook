@@ -1,6 +1,8 @@
 @import 'reset.scss';
-@import 'variables.scss';
+@import 'restore.scss';
 @import 'constants.scss';
+@import 'variables.scss';
+
 
 // General HTML elements
 html, body, mat-drawer-container, mat-drawer {
@@ -53,6 +55,7 @@ $headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
   @include drop-shadow();
   }
 }
+
 
 // Components general styles
 mat-horizontal-stepper {

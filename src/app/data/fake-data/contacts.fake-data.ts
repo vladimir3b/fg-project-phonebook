@@ -1,6 +1,6 @@
 import { IContactModel } from '../models/contact.model';
 
-const CONTACTS: Array<IContactModel> = [
+export const CONTACTS: Array<IContactModel> = [
   {
     id: '5c5b66db8eef8a981816c1a7',
     firstName: 'Horn',
