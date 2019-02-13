@@ -1,15 +1,15 @@
-@import './prededined-constants.scss';
+@import './predefined-variables.scss';
 
 // Headers
 @mixin title($size) {
-  font-family: $TITLE_FONT;
-  font-size: nth($HEADERS_SIZES, $size);
-  letter-spacing: nth($HEADERS_SIZES, $size) * 0.3;
+  font-family: $title-font;
+  font-size: nth($headers-sizes, $size);
+  letter-spacing: nth($headers-sizes, $size) * 0.3;
 }
 
 @mixin subtitle($size) {
-  font-family: $SUBTITLE_FONT;
-  font-size: nth($HEADERS_SIZES, $size);
+  font-family: $subtitle-font;
+  font-size: nth($headers-sizes, $size);
 }
 
 // Logo
@@ -23,34 +23,32 @@
   @include text-3d();
   line-height: 75%;
   @if $media == 'desktop' {
-    font-size: $CAROUSEL_LOGO_SIZE_DESKTOP;
-    @include _logo(-$CAROUSEL_LOGO_SIZE_DESKTOP * 0.07);
+    font-size: $carousel-logo-size-desktop;
+    @include _logo(-$carousel-logo-size-desktop * 0.07);
   }
   @if $media == 'tablet' {
-    font-size: $CAROUSEL_LOGO_SIZE_TABLET;
-    @include _logo(-$CAROUSEL_LOGO_SIZE_TABLET * 0.07);
+    font-size: $carousel-logo-size-tablet;
+    @include _logo(-$carousel-logo-size-tablet * 0.07);
   }
   @if $media == 'mobile' {
-    font-size: $CAROUSEL_LOGO_SIZE_MOBILE;
-    @include _logo(-$CAROUSEL_LOGO_SIZE_MOBILE * 0.07);
+    font-size: $carousel-logo-size-mobile;
+    @include _logo(-$carousel-logo-size-mobile * 0.07);
   }
 }
 
 @mixin logo($media, $text-color, $outline-color) {
-  // @include _logo();
   color: $text-color;
-  @include text-outline($outline-color);
   @if $media == 'desktop' {
-    font-size: $LOGO_SIZE_DESKTOP;
-    @include _logo(-$LOGO_SIZE_DESKTOP * 0.07);
+    font-size: $logo-size-desktop;
+    @include _logo(-$logo-size-desktop * 0.07);
   }
   @if $media == 'tablet' {
-    font-size: $LOGO_SIZE_TABLET;
-    @include _logo(-$LOGO_SIZE_TABLET * 0.07);
+    font-size: $logo-size-tablet;
+    @include _logo(-$logo-size-tablet * 0.07);
   }
   @if $media == 'mobile' {
-    font-size: $LOGO_SIZE_MOBILE;
-    @include _logo(-$LOGO_SIZE_MOBILE * 0.07);
+    font-size: $logo-size-mobile;
+    @include _logo(-$logo-size-mobile * 0.07);
   }
 }
 

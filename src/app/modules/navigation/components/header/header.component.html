@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <button
-      fxHide.gt-sm
+      *ngIf="deviceType !== 'desktop'"
       (click)="openSidebar()"
       mat-icon-button>
     <mat-icon>
@@ -8,16 +8,16 @@
     </mat-icon>
   </button>
   &nbsp;&nbsp;
-  <a
-      fxHide.lt-sm
-      routerLink="/">
-    <span class="logo">PHONEBOOK</span>
-  </a> 
-  <a      
-      fxHide.gt-xs
-      routerLink="/">
-      <span class="logo-small">PHONEBOOK</span> 
-  </a> 
+  <a routerLink="/">
+    <span [ngClass]="{
+      'logo-desktop': deviceType === 'desktop',
+      'logo-tablet': deviceType === 'tablet',
+      'logo-mobile': deviceType === 'mobile'
+    }">
+      PHONEBOOK
+    </span>
+  </a>
+
   <div fxHide.lt-sm>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <strong>Logged user: </strong>

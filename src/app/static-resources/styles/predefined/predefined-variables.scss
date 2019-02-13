@@ -1,11 +1,6 @@
 // DO NOT CHANGE THESE VALUES!!!
-@import '~@angular/material/theming';
-@import './prededined-constants.scss';
+@import './predefined-constants.scss';
 @include mat-core();
-
-/**
- *  Variables
- */
 
 // Color values
 $primary-color: map-get($PRIMARY_COLOR, 500);
@@ -30,34 +25,32 @@ $text-color-dark: map-get($TEXT_COLOR, 900);
 $very-light-color: $VERY_LIGHT_COLOR;
 $very-dark-color: $VERY_DARK_COLOR;
 
-// HTML elements
-$textTags: ('a', 'p', 'li', 'ul', 'span', 'div');
-$headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+// Font values
+$title-font: $TITLE_FONT;
+$subtitle-font: $SUBTITLE_FONT;
+$text-font: $TEXT_FONT;
+$logo-font: $LOGO_FONT;
+$graphic-font: $GRAPHIC_FONT;
 
-/**
- * Functions and mixins
- */
-@function title-size($title) {
-  // @error $title;
-  @if $title == 'h1' {
-    @return $H1;
-  }
-  @if $title == 'h2' {
-    @return $H2;
-  }
-  @if $title == 'h3' {
-    @return $H3;
-  }
-  @if $title == 'h4' {
-    @return $H4;
-  }
-  @if $title == 'h5' {
-    @return $H5;
-  }
-  @if $title  == 'h6' {
-    @return $H6;
-  }
-}
+// Test sizes values
+$text-size: $TEXT_SIZE;
+$h1-size: $H1_SIZE;
+$h2-size: $H2_SIZE;
+$h3-size: $H3_SIZE;
+$h4-size: $H4_SIZE;
+$h5-size: $H5_SIZE;
+$h6-size: $H6_SIZE;
+$headers-sizes: ($h1_size, $h2_size, $h3_size, $h4_size, $h5_size, $h6_size);
+$logo-size-desktop: $LOGO_SIZE_DESKTOP;
+$logo-size-tablet: $LOGO_SIZE_TABLET;
+$logo-size-mobile: $LOGO_SIZE_MOBILE;
+$carousel-logo-size-desktop: $CAROUSEL_LOGO_SIZE_DESKTOP;
+$carousel-logo-size-tablet: $CAROUSEL_LOGO_SIZE_TABLET;
+$carousel-logo-size-mobile: $CAROUSEL_LOGO_SIZE_MOBILE;
+$footer-text-size: $FOOTER_TEXT_SIZE;
 
+// General layout values
+$distance-from-the-margins: $DISTANCE_FROM_THE_MARGINS;
 
-
+// Collections of elements
+$html_headers: ('h1', 'h2', 'h3', 'h4','h5', 'h6');

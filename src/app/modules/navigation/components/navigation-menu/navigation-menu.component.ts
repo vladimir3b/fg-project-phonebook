@@ -1,4 +1,4 @@
-import { DeviceTypeService } from './../../../root/services/device-type.service';
+import { DeviceService } from '../../../root/services/device.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMenuItemModel } from '../../models/menu-item.model';
@@ -22,7 +22,7 @@ export class NavigationMenuComponent implements OnInit, OnDestroy {
   // CONSTRUCTOR
   constructor(
       private _router: Router,
-      private _deviceType: DeviceTypeService
+      private _device: DeviceService
   ) {
     this._watchers = [];
     this.isMobile = false;
@@ -68,9 +68,9 @@ export class NavigationMenuComponent implements OnInit, OnDestroy {
 
   // LIFE CYCLE HOOKS
   public ngOnInit(): void {
-    this._watchers.push(this._deviceType.mobile.subscribe((mobileDevice: boolean) => {
-      this.isMobile = mobileDevice;
-    }));
+    // this._watchers.push(this._device.mobile.subscribe((mobileDevice: boolean) => {
+    //   this.isMobile = mobileDevice;
+    // }));
   }
 
   public ngOnDestroy(): void {

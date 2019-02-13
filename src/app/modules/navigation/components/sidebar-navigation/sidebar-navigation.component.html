@@ -1,7 +1,6 @@
-<mat-drawer-container
-    [hasBackdrop]="true">
+<mat-drawer-container fxFill [hasBackdrop]="true">
 
-  <!-- sidebar -->
+  <!-- Sidebar -->
   <mat-drawer
       fxHide.gt-sm
       class="sidebar-navigation"
@@ -19,21 +18,24 @@
     <hr>
   </mat-drawer>
 
-  <!-- main application window -->
+  <!-- Main application window -->
   <mat-drawer-content
-      fxLayout="column">
-    <header>
+      fxLayout="column"
+      fxLayoutAlign="space-between stretch">
+    <header
+        fxFlex="64px"
+        fxFlex.xs="56px">
       <fg-header
         [userName]="userName"
         (toggleSideBar)="sideNavigation.toggle()"></fg-header>
     </header>
     <section fxFlex="auto">
-      <mat-card >
-        <ng-content></ng-content>
-      </mat-card>
+      <ng-content></ng-content>
     </section>
-    <footer fxFlex="110px">
-        <fg-footer></fg-footer>
+    <footer
+        fxFlex="110px"
+        fxFlex.xs="96px">
+      <fg-footer></fg-footer>
     </footer>
   </mat-drawer-content>
 

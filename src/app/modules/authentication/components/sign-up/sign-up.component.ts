@@ -1,4 +1,4 @@
-import { DeviceTypeService } from './../../../root/services/device-type.service';
+import { DeviceService } from '../../../root/services/device.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { genderType } from 'src/app/data/models/types';
 import { Subscription } from 'rxjs';
@@ -16,7 +16,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   public isMobile: boolean;
 
   // CONSTRUCTOR
-  constructor(private _deviceType: DeviceTypeService) {
+  constructor(private _device: DeviceService) {
     this._watchers = [];
     this.isMobile = false;
     this.gender = 'male';
@@ -24,9 +24,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   // LIFE CYCLE HOOKS
   public ngOnInit(): void {
-    this._watchers.push(this._deviceType.mobile.subscribe((isMobile: boolean) => {
-      this.isMobile = isMobile;
-    }));
+    // this._watchers.push(this._deviceType.mobile.subscribe((isMobile: boolean) => {
+    //   this.isMobile = isMobile;
+    // }));
   }
 
   public ngOnDestroy(): void {

@@ -9,7 +9,7 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 // My imports
 import { CONTACTS } from './../../../../data/fake-data/contacts.fake-data';
-import { DeviceTypeService } from '../../../root/services/device-type.service';
+import { DeviceService } from '../../../root/services/device.service';
 import { FakeLoadingDataService } from './../../../../data/fake-data/fake-loading-data.service';
 import { IContactModel } from 'src/app/data/models/contact.model';
 
@@ -38,7 +38,7 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
 
   // CONSTRUCTOR
   constructor(
-      private _deviceTypeService: DeviceTypeService,
+      private _device: DeviceService,
       private _fakeLoadingData: FakeLoadingDataService
   ) {
     this.expandedElement = null;
@@ -48,55 +48,55 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
 
   // LIFE CYCLE HOOKS
   public ngOnInit(): void {
-    this._watchers.push(this._deviceTypeService.mobile.subscribe(((mobileDevice: boolean) => {
-      if (mobileDevice) {
-        this.displayedColumns = [
-          {
-            label: 'index',
-            caption: 'Index',
-          },
-          {
-            label: 'alias',
-            caption: 'Alias'
-          },
-          {
-            label: 'mainPhone',
-            caption: 'Main Phone'
-          }
-        ]
-      } else {
-        this.displayedColumns = [
-          {
-            label: 'index',
-            caption: 'Index'
-          },
-          {
-            label: 'firstName',
-            caption: 'First Name'
-          },
-          {
-            label: 'lastName',
-            caption: 'Last Name'
-          },
-          {
-            label: 'alias',
-            caption: 'Alias'
-          },
-          {
-            label: 'group',
-            caption: 'Group'
-          },
-          {
-            label: 'mainPhone',
-            caption: 'Main Phone'
-          },
-          {
-            label: 'mainEmail',
-            caption: 'Main Email'
-          }
-        ];
-      }
-    })));
+    // this._watchers.push(this._deviceService.mobile.subscribe(((mobileDevice: boolean) => {
+    //   if (mobileDevice) {
+    //     this.displayedColumns = [
+    //       {
+    //         label: 'index',
+    //         caption: 'Index',
+    //       },
+    //       {
+    //         label: 'alias',
+    //         caption: 'Alias'
+    //       },
+    //       {
+    //         label: 'mainPhone',
+    //         caption: 'Main Phone'
+    //       }
+    //     ]
+    //   } else {
+    //     this.displayedColumns = [
+    //       {
+    //         label: 'index',
+    //         caption: 'Index'
+    //       },
+    //       {
+    //         label: 'firstName',
+    //         caption: 'First Name'
+    //       },
+    //       {
+    //         label: 'lastName',
+    //         caption: 'Last Name'
+    //       },
+    //       {
+    //         label: 'alias',
+    //         caption: 'Alias'
+    //       },
+    //       {
+    //         label: 'group',
+    //         caption: 'Group'
+    //       },
+    //       {
+    //         label: 'mainPhone',
+    //         caption: 'Main Phone'
+    //       },
+    //       {
+    //         label: 'mainEmail',
+    //         caption: 'Main Email'
+    //       }
+    //     ];
+    //   }
+    // })));
     this.contacts.paginator = this._paginator;
     this.contacts.sort = this._sort;
   }

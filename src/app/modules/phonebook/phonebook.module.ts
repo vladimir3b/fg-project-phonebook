@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 // My imports
 import { DeleteContactDialogComponent } from './components/delete-contact-dialog/delete-contact-dialog.component';
-import { DeviceTypeService } from './../root/services/device-type.service';
+import { DeviceService } from '../root/services/device.service';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
 import { FakeLoadingDataService } from './../../data/fake-data/fake-loading-data.service';
@@ -33,7 +33,7 @@ const LOADING_AND_EXPORTING = {
     ...LOADING_AND_EXPORTING.imports
   ],
   providers: [
-    DeviceTypeService,
+    DeviceService,
     FakeLoadingDataService
   ]
 })
