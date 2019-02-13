@@ -8,13 +8,14 @@
  *      /_/   \_\ | .__/  | .__/  |_| |_|  \___|  \__,_|  \__| |_|  \___/  |_| |_|   |____/   \__|  \__, | |_|  \___| |___/
  *                |_|     |_|                                                                       |___/
  *
- *   This style sheet is loaded by the Angular application. It includes all general styles used in this application. It also
- *   includes the CSS reset, fonts, angular material custom theme and predefined variables, mixins, functions and classes.
- *   As a general rule, all the styles that modify more than one angular or angular material component will be defined in this
- *   file. On the other hand, styles that apply only to a particular component will appear in that component definition.
+ *   This style sheet is loaded by the Angular application. It includes all general styles used in this application. It also  includes the CSS reset,
+ *   fonts, angular material custom theme and predefined variables, mixins, functions and classes. As a general rule, all the styles that modify more
+ *   than one angular or angular material component will be defined in this file. On the other hand, styles that apply only to a particular component
+ *   will appear in that component definition.
  *
- *    ** This file should not be change by any means. If you want to personalize the application change constants
- *       in ./predefined/predefined-constants.scss instead.  *
+ *   ** This file should not be changed by any means. If you want to personalize the application change constants  in 'predefined-constants.scss'
+ *      instead.
+ *
  *
  */
 
@@ -26,14 +27,11 @@
 // General styles
 html, body {
   height: 100%;
-  font-size: $TEXT_SIZE;
+  font-size: $text-size;
 }
 
-body {
-  background-color: red;
-}
 
-// HTML Headers 1-6
+// HTML Headers
 h1 {
   @include title(1);
 }
@@ -58,16 +56,11 @@ h6 {
   @include subtitle(6);
 }
 
-// Main application window
-section {
-  background-color: yellow;
-}
-
-// Toolbars
+// Toolbars - for header and footer
 mat-toolbar {
   * {
-    color: $text-color-light;
-  }
+  color: $text-color-light;
+}
   a {
     &:hover {
       color: $very-light-color;
@@ -76,4 +69,13 @@ mat-toolbar {
     text-decoration: none;
     cursor: hand
   }
+}
+
+// Temporary styles during development
+body {
+  background-color: red;
+}
+
+section {
+  background-color: yellow;
 }
