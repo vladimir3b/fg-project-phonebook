@@ -1,35 +1,21 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
-  MatToolbarModule,
-  MatIconModule,
-  MatSidenavModule,
   MatButtonModule,
-  MatListModule,
   MatInputModule,
   MatFormFieldModule,
   MatStepperModule,
   MatDatepickerModule,
   MatNativeDateModule,
   MatSlideToggleModule,
-  MatTableModule,
   MatCardModule,
-  MatPaginatorModule,
-  MatSortModule,
-  MatDividerModule
 } from '@angular/material';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 const LOADING_AND_EXPORTING = {
   declarations: [],
   imports: [
-    MatToolbarModule,
-    MatIconModule,
     FlexLayoutModule,
-    MatSidenavModule,
     MatButtonModule,
-    MatListModule,
-    MatCarouselModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -37,11 +23,7 @@ const LOADING_AND_EXPORTING = {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
-    MatTableModule,
     MatCardModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatDividerModule
   ]
 };
 
@@ -55,4 +37,4 @@ const LOADING_AND_EXPORTING = {
     ...LOADING_AND_EXPORTING.imports
   ]
 })
-export class AngularMaterialLoadingModule { }
+export class AuthenticationLoadingAngularMaterialModule { }

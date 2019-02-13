@@ -1,13 +1,14 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RootRoutingModule } from './root-routing.module';
-import { PhonebookModule } from './../phonebook/phonebook.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // My imports
+import { RootLoadingAngularMaterialModule } from './root.loading-angular-material.module';
 import { AuthenticationModule } from './../authentication/authentication.module';
-import { RootComponent } from './components/root/root.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavigationModule } from '../navigation/navigation.module';
+import { PhonebookModule } from './../phonebook/phonebook.module';
+import { RootRoutingModule } from './root.routing.module';
+import { RootComponent } from './components/root/root.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NavigationModule } from '../navigation/navigation.module';
   ],
   imports: [
     BrowserModule,
+    RootLoadingAngularMaterialModule,
     BrowserAnimationsModule,
     AuthenticationModule,
     PhonebookModule,

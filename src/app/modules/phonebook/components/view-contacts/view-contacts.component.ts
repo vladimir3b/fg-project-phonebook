@@ -119,9 +119,9 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     return this._paginator.pageSize * this._paginator.pageIndex + localIndex + 1;
   }
 
-  public displayedColumnsLabels(): Array<string> {
-    return this.displayedColumns.map(column => column.label);
-  }
+  // public displayedColumnsLabels(): Array<string> {
+  //   return this.displayedColumns.map(column => column.label);
+  // }
 
   public detailsAboutContact(contact: IContactModel, label: string): string {
     switch(label) {

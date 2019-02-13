@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 const LOADING_AND_EXPORTING = {
   declarations: [],
-  imports: []
+  imports: [
+    MatIconModule,
+    FlexLayoutModule,
+    MatCarouselModule
+  ]
 };
 
 @NgModule({
@@ -16,4 +22,4 @@ const LOADING_AND_EXPORTING = {
     ...LOADING_AND_EXPORTING.imports
   ]
 })
-export class AngularfireLoadingModule { }
+export class RootLoadingAngularMaterialModule { }

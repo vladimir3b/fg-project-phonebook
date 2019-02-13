@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 // My imports
+import { AuthenticationLoadingAngularMaterialModule } from './authentication.loading-angular-material.module';
+import { AuthenticationRoutingModule } from './authentication.routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DeleteUserDialogComponent } from './components/delete-user-dialog/delete-user-dialog.component';
-import { LoadingModulesModule } from './../loading-modules/loading-modules.module';
 
 const LOADING_AND_EXPORTING = {
   declarations: [
@@ -14,14 +15,16 @@ const LOADING_AND_EXPORTING = {
     SignUpComponent,
     DeleteUserDialogComponent
   ],
-  imports: []
+  imports: [
+    AuthenticationRoutingModule
+  ]
 };
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
     CommonModule,
-    LoadingModulesModule,
+    AuthenticationLoadingAngularMaterialModule,
     ...LOADING_AND_EXPORTING.imports
   ],
   exports: [
