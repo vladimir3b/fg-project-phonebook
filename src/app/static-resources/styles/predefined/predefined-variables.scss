@@ -1,0 +1,63 @@
+// DO NOT CHANGE THESE VALUES!!!
+@import '~@angular/material/theming';
+@import './prededined-constants.scss';
+@include mat-core();
+
+/**
+ *  Variables
+ */
+
+// Color values
+$primary-color: map-get($PRIMARY_COLOR, 500);
+$primary-color-light: map-get($PRIMARY_COLOR, 200);
+$primary-color-dark: map-get($PRIMARY_COLOR, 900);
+
+$accent-color: map-get($ACCENT_COLOR, 500);
+$accent-color-light: map-get($ACCENT_COLOR, 200);
+$accent-color-dark: map-get($ACCENT_COLOR, 900);
+
+$reserved-color: map-get($RESERVED_COLOR, 500);
+$reserved-color-light: map-get($RESERVED_COLOR, 200);
+$reserved-color-dark: map-get($RESERVED_COLOR, 900);
+
+$warn-color: map-get($WARN_COLOR, 500);
+$warn-color-light: map-get($WARN_COLOR, 200);
+$warn-color-dark: map-get($WARN_COLOR, 900);
+
+$text-color-light: map-get($TEXT_COLOR, 50);
+$text-color-dark: map-get($TEXT_COLOR, 900);
+
+$very-light-color: $VERY_LIGHT_COLOR;
+$very-dark-color: $VERY_DARK_COLOR;
+
+// HTML elements
+$textTags: ('a', 'p', 'li', 'ul', 'span', 'div');
+$headerTags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+
+/**
+ * Functions and mixins
+ */
+@function title-size($title) {
+  // @error $title;
+  @if $title == 'h1' {
+    @return $H1;
+  }
+  @if $title == 'h2' {
+    @return $H2;
+  }
+  @if $title == 'h3' {
+    @return $H3;
+  }
+  @if $title == 'h4' {
+    @return $H4;
+  }
+  @if $title == 'h5' {
+    @return $H5;
+  }
+  @if $title  == 'h6' {
+    @return $H6;
+  }
+}
+
+
+

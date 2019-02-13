@@ -1,0 +1,40 @@
+// You may change these values to personalize the appearance
+@import '~@angular/material/theming';
+
+// Color constants
+$PRIMARY_COLOR: $mat-pink;
+$ACCENT_COLOR: $mat-cyan;
+$RESERVED_COLOR: $mat-amber;
+$WARN_COLOR: $mat-red;
+$TEXT_COLOR: $mat-blue-grey;
+$VERY_LIGHT_COLOR: white;
+$VERY_DARK_COLOR: black;
+
+// Font constants
+$TITLE_FONT: 'Major Mono Display', monospace;
+$SUBTITLE_FONT: 'Bree Serif', serif;
+$TEXT_FONT: 'Roboto', sans-serif;
+$LOGO_FONT: 'Hanalei Fill', cursive;
+$GRAPHIC_FONT: 'Bungee Inline', cursive;
+
+// Text sizes
+$TEXT_SIZE: 14px;
+$H1_SIZE: 6rem;
+$H2_SIZE: 6 * 0.55rem;
+$H3_SIZE: 3rem;
+$H4_SIZE: 3 * 0.65rem;
+$H5_SIZE: 2rem;
+$H6_SIZE: 2 * 0.75rem;
+$HEADERS_SIZES: ($H1_SIZE, $H2_SIZE, $H3_SIZE, $H4_SIZE, $H5_SIZE, $H6_SIZE);
+$LOGO_SIZE_DESKTOP: 2.2rem;
+$LOGO_SIZE_TABLET: 2rem;
+$LOGO_SIZE_MOBILE: 1.8rem;
+$CAROUSEL_LOGO_SIZE_DESKTOP: 14rem;
+$CAROUSEL_LOGO_SIZE_TABLET: 10rem;
+$CAROUSEL_LOGO_SIZE_MOBILE: 6rem;
+$FOOTER_TEXT_SIZE: 0.75rem;
+
+
+
+// HTML elements
+$HTML_HEADERS: ('h1', 'h2', 'h3', 'h4','h5', 'h6');

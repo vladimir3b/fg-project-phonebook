@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+@import '../predefined/prededined-constants.scss';
+@include mat-core();
+
+// Loading color themes
+$color-palette-primary: mat-palette($PRIMARY_COLOR);
+$color-palette-accent: mat-palette($ACCENT-COLOR);
+$color-palette-warn: mat-palette($WARN-COLOR);
+
+// Creating and loading material theme
+$phonebook-theme: mat-light-theme(
+  $color-palette-primary,
+  $color-palette-accent,
+  $color-palette-warn
+);
+@include angular-material-theme($phonebook-theme);
