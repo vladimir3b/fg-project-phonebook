@@ -29,13 +29,8 @@
         [userName]="userName"
         (toggleSideBar)="sideNavigation.toggle()"></fg-header>
     </header>
-    <section fxFlex="auto">
-      <div fxLayout="column"
-      fxLayoutAlign="start">
-        <div fxFill>
-          <ng-content></ng-content>
-        </div>
-      </div>
+    <section fxFlex="auto" style="background-color: darkred">
+        <ng-content></ng-content>
     </section>
     <footer
         fxFlex="110px"

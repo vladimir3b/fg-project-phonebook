@@ -85,5 +85,7 @@
            $distance-from-the-margins
            (7 * $distance-from-the-margins)
            $distance-from-the-margins !important;
+  border-radius: 0 !important;
+  height: 100%;
   @include no-shadow();
 }
