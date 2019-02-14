@@ -74,3 +74,16 @@
 .logo-mobile {
   @include logo('mobile', $very-light-color, $accent-color-light);
 }
+
+
+// Page container
+.component-container {
+  // As we will use this class with 'mat-card' material component we need to force the styles
+  // by using !important.
+  margin: 0 !important;
+  padding: $distance-from-the-margins
+           $distance-from-the-margins
+           (7 * $distance-from-the-margins)
+           $distance-from-the-margins !important;
+  @include no-shadow();
+}

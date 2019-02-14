@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this._watchers.forEach((watcher: Subscription) => watcher.unsubscribe());
   }
+
   // METHODS
   public openSidebar(): void {
     this.toggleSideBar.emit();

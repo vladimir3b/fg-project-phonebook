@@ -69,4 +69,21 @@ $footer-text-size: $FOOTER_TEXT_SIZE;
 $distance-from-the-margins: $DISTANCE_FROM_THE_MARGINS;
 
 // Collections of elements
-$html_headers: ('h1', 'h2', 'h3', 'h4','h5', 'h6');
+$html-headers: ('h1', 'h2', 'h3', 'h4','h5', 'h6');
+$html-text: (
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'p',
+  'ul',
+  'li'
+  'ol',
+  'span',
+  'div',
+  'form',
+  'label',
+  'input'
+);

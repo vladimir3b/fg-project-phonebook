@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+// My imports
+import { DeviceService } from './../../services/device.service';
+import { Subscription } from 'rxjs';
+import { devicesType } from '../../models/types';
 
 @Component({
   selector: 'fg-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent implements OnInit, OnDestroy {
 
   // PROPERTIES
+  private _watchers: Array<Subscription>;
+  public deviceType: devicesType;
   public slides: Array<string>;
   public content: Array<{
     title: string;
@@ -17,7 +22,8 @@ export class HomeComponent implements OnInit {
   }>;
 
   // CONSTRUCTOR
-  constructor() {
+  constructor(private _device: DeviceService) {
+    this._watchers = [];
     this.slides = [
       'assets/img/img1.jpg',
       'assets/img/img2.jpg',
@@ -46,6 +52,13 @@ export class HomeComponent implements OnInit {
   }
 
   // LIFE CYCLE HOOKS
-  public ngOnInit(): void { }
+  public ngOnInit(): void {
+    this._watchers.push(this._device.type
+      .subscribe((deviceType: devicesType) => this.deviceType = deviceType));
+  }
+
+  public ngOnDestroy(): void {
+    this._watchers.forEach((watcher: Subscription) => watcher.unsubscribe());
+  }
 
 }

@@ -30,7 +30,12 @@
         (toggleSideBar)="sideNavigation.toggle()"></fg-header>
     </header>
     <section fxFlex="auto">
-      <ng-content></ng-content>
+      <div fxLayout="column"
+      fxLayoutAlign="start">
+        <div fxFill>
+          <ng-content></ng-content>
+        </div>
+      </div>
     </section>
     <footer
         fxFlex="110px"

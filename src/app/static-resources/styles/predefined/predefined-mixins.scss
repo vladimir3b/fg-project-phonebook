@@ -18,6 +18,7 @@
 
 // Headers
 @mixin title($size) {
+  color: $accent-color;
   font-family: $title-font;
   font-size: nth($headers-sizes, $size);
   letter-spacing: nth($headers-sizes, $size) * 0.3;
@@ -110,3 +111,25 @@
     0 20px 20px rgba(0,0,0,.15);
 }
 
+// Angular material icons
+@mixin icon-size($size) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}
+
+@mixin icon-with-border($icon-size, $border-size-factor, $icon-color, $border-color) {
+  mat-icon {
+    @include icon-size($icon-size);
+    background-color: $border-color;
+    color: $icon-color;
+    border-radius: $icon-size;
+  }
+  @include icon-size($border-size-factor * $icon-size);
+  background-color: $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-size-factor * $icon-size;
+}

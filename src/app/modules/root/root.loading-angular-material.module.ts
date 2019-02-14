@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatCardModule } from '@angular/material';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 const LOADING_AND_EXPORTING = {
@@ -8,7 +8,8 @@ const LOADING_AND_EXPORTING = {
   imports: [
     MatIconModule,
     FlexLayoutModule,
-    MatCarouselModule
+    MatCarouselModule,
+    MatCardModule
   ]
 };
 

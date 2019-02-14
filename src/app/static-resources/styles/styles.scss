@@ -28,6 +28,7 @@
 html, body {
   height: 100%;
   font-size: $text-size;
+  overflow: hidden; //will use the component scroll instead
 }
 
 
@@ -79,3 +80,13 @@ body {
 section {
   background-color: yellow;
 }
+
+// mat-card {
+//   @each $tag in $html-text {
+//     #{ $tag } {
+//       color: inherit;
+//       background-color: inherit;
+//     }
+//   }
+// }
+
