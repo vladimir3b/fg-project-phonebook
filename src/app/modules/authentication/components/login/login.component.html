@@ -1,32 +1,33 @@
-<form
-    class="login-form"
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    fxLayoutGap="1.2rem">
+<mat-card class="component-container">
+  <form
+      class="login-form"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="1.2rem">
 
-  <mat-form-field
-      ngClass.lt-sm="form-input-mobile"
-      ngClass.gt-xs="form-input-desktop">
-    <input 
+    <mat-form-field
+        ngClass.lt-sm="form-input-mobile"
+        ngClass.gt-xs="form-input-desktop">
+      <input
+          matInput
+          type="text"
+          placeholder="Your username or email">
+    </mat-form-field>
+
+    <mat-form-field
+        ngClass.lt-sm="form-input-mobile"
+        ngClass.gt-xs="form-input-desktop">
+      <input
         matInput
-        type="text"
-        placeholder="Your username or email">
-  </mat-form-field>
+        type="password"
+        placeholder="Your password">
+    </mat-form-field>
 
-  <mat-form-field
-      ngClass.lt-sm="form-input-mobile"
-      ngClass.gt-xs="form-input-desktop">
-    <input 
-      matInput 
-      type="password"
-      placeholder="Your password">
-  </mat-form-field>
-
-  <button 
-      color="accent"
-      mat-raised-button
-      type="submit">
-    Login
-  </button>
-
-</form>
+    <button
+        color="accent"
+        mat-raised-button
+        type="submit">
+      Login
+    </button>
+  </form>
+</mat-card>
