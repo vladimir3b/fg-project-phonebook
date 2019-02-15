@@ -1,5 +1,32 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-// My imports
+/***
+ *    ██╗  ██╗ ██████╗ ███╗   ███╗███████╗
+ *    ██║  ██║██╔═══██╗████╗ ████║██╔════╝
+ *    ███████║██║   ██║██╔████╔██║█████╗
+ *    ██╔══██║██║   ██║██║╚██╔╝██║██╔══╝
+ *    ██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ████████╗███████╗
+ *    ╚══██╔══╝██╔════╝
+ *       ██║   ███████╗
+ *       ██║   ╚════██║
+ *       ██║   ███████║
+ *       ╚═╝   ╚══════╝
+ *
+ */
+import {
+  Component,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
+// MY IMPORTS
 import { DeviceService } from './../../services/device.service';
 import { Subscription } from 'rxjs';
 import { devicesType } from '../../models/types';
@@ -11,7 +38,11 @@ import { devicesType } from '../../models/types';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  // PROPERTIES
+ /***
+ *    ┌─┐┬─┐┌─┐┌─┐┌─┐┬─┐┌┬┐┬┌─┐┌─┐
+ *    ├─┘├┬┘│ │├─┘├┤ ├┬┘ │ │├┤ └─┐
+ *    ┴  ┴└─└─┘┴  └─┘┴└─ ┴ ┴└─┘└─┘
+ */
   private _watchers: Array<Subscription>;
   public deviceType: devicesType;
   public slides: Array<string>;
@@ -21,7 +52,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     icon: string;
   }>;
 
-  // CONSTRUCTOR
+
+/***
+ *    ┌─┐┌─┐┌┐┌┌─┐┌┬┐┬─┐┬ ┬┌─┐┌┬┐┌─┐┬─┐
+ *    │  │ ││││└─┐ │ ├┬┘│ ││   │ │ │├┬┘
+ *    └─┘└─┘┘└┘└─┘ ┴ ┴└─└─┘└─┘ ┴ └─┘┴└─
+ */
   constructor(private _device: DeviceService) {
     this._watchers = [];
     this.slides = [
@@ -51,7 +87,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     ];
   }
 
-  // LIFE CYCLE HOOKS
+/***
+ *    ┬  ┬┌─┐┌─┐
+ *    │  │├┤ ├┤
+ *    ┴─┘┴└  └─┘
+ *    ┌─┐┬ ┬┌─┐┬  ┌─┐
+ *    │  └┬┘│  │  ├┤
+ *    └─┘ ┴ └─┘┴─┘└─┘
+ *    ┬ ┬┌─┐┌─┐┬┌─┌─┐
+ *    ├─┤│ ││ │├┴┐└─┐
+ *    ┴ ┴└─┘└─┘┴ ┴└─┘
+ */
   public ngOnInit(): void {
     this._watchers.push(this._device.type
       .subscribe((deviceType: devicesType) => this.deviceType = deviceType));

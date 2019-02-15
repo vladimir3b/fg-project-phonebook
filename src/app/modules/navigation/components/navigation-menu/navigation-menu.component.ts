@@ -40,14 +40,8 @@ export class NavigationMenuComponent implements OnInit, OnDestroy {
         icon: 'person_add'
       },
       {
-        caption: 'View Contacts',
-        link: '/view-contacts',
-        show: true,
-        icon: 'people'
-      },
-      {
-        caption: 'Edit Contacts',
-        link: 'edit-contacts',
+        caption: 'Contacts',
+        link: 'phonebook',
         show: true,
         icon: 'edit'
       },

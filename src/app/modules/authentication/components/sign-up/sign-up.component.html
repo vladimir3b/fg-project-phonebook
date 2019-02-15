@@ -1,38 +1,39 @@
-<!--
+<!-- /***
+ *    ███████╗██╗ ██████╗ ███╗   ██╗      ██╗   ██╗██████╗
+ *    ██╔════╝██║██╔════╝ ████╗  ██║      ██║   ██║██╔══██╗
+ *    ███████╗██║██║  ███╗██╔██╗ ██║█████╗██║   ██║██████╔╝
+ *    ╚════██║██║██║   ██║██║╚██╗██║╚════╝██║   ██║██╔═══╝
+ *    ███████║██║╚██████╔╝██║ ╚████║      ╚██████╔╝██║
+ *    ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝       ╚═════╝ ╚═╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ██╗  ██╗████████╗███╗   ███╗██╗
+ *    ██║  ██║╚══██╔══╝████╗ ████║██║
+ *    ███████║   ██║   ██╔████╔██║██║
+ *    ██╔══██║   ██║   ██║╚██╔╝██║██║
+ *    ██║  ██║   ██║   ██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝
+ *
+ */ -->
+<mat-card fxFill class="container">
 
-  Form templates
+<!-- /***
+*    ┌─┐┌─┐┬─┐┌┬┐
+*    ├┤ │ │├┬┘│││
+*    └  └─┘┴└─┴ ┴
+*    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐┌─┐
+*     │ ├┤ │││├─┘│  ├─┤ │ ├┤ └─┐
+*     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘└─┘
+*/ -->
 
--->
-<!-- template for filling out the user's name -->
-<ng-template #userName>
-  <form
-      class="sign-up-form"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="1.2rem">
-    <mat-form-field
-        ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
-      <input
-          matInput
-          type="text"
-          required
-          placeholder="Please enter your first name">
-    </mat-form-field>
-    <mat-form-field
-        ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
-      <input
-          matInput
-          type="text"
-          required
-          placeholder="Please enter your last name">
-    </mat-form-field>
-  </form>
-</ng-template>
-
-  <!-- template for filling out the user's data -->
-  <ng-template #personalData>
+<!-- USER'S NAME -->
+  <ng-template #userName>
     <form
         class="sign-up-form"
         fxLayout="column"
@@ -40,320 +41,356 @@
         fxLayoutGap="1.2rem">
       <mat-form-field
           ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
+          ngClass.gt-sm="form-input-desktop">
         <input
             matInput
-            [matDatepicker]="picker"
-            placeholder="Choose your birthday"
+            type="text"
+            required
+            placeholder="Please enter your first name">
+      </mat-form-field>
+      <mat-form-field
+          ngClass.lt-md="form-input-mobile"
+          ngClass.gt-sm="form-input-desktop">
+        <input
+            matInput
+            type="text"
+            required
+            placeholder="Please enter your last name">
+      </mat-form-field>
+    </form>
+  </ng-template>
+
+  <!-- USER'S PERSONAL DATA -->
+    <ng-template #personalData>
+      <form
+          class="sign-up-form"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="1.2rem">
+        <mat-form-field
+            ngClass.lt-md="form-input-mobile"
+          ngClass.gt-sm="form-input-desktop">
+          <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Choose your birthday"
+              required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-slide-toggle
+          [checked]="gender === 'male'"
+          (change)="changeGender($event.checked)">
+          gender {{ gender }}
+      </mat-slide-toggle>
+    </form>
+  </ng-template>
+
+<!-- USER'S ACCOUNT DATA-->
+  <ng-template #accountData>
+    <form
+        class="sign-up-form"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="1.2rem">
+      <mat-form-field
+          ngClass.lt-md="form-input-mobile"
+          ngClass.gt-sm="form-input-desktop">
+        <input
+            matInput
+            type="text"
+            placeholder="Your username"
             required>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-slide-toggle
-        [checked]="gender === 'male'"
-        (change)="changeGender($event.checked)">
-        gender {{ gender }}
-     </mat-slide-toggle>
-  </form>
-</ng-template>
+      </mat-form-field>
+      <mat-form-field
+          ngClass.lt-md="form-input-mobile"
+          ngClass.gt-sm="form-input-desktop">
+        <input
+            matInput
+            type="email"
+            placeholder="Your email"
+            required>
+      </mat-form-field>
+    </form>
+  </ng-template>
 
-<!-- template for filling out user's account data -->
-<ng-template #accountData>
-  <form
-      class="sign-up-form"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="1.2rem">
-    <mat-form-field
-        ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
-      <input
-          matInput
-          type="text"
-          placeholder="Your username"
-          required>
-    </mat-form-field>
-    <mat-form-field
-        ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
-      <input
-          matInput
-          type="email"
-          placeholder="Your email"
-          required>
-    </mat-form-field>
-  </form>
-</ng-template>
+<!-- USER'S PASSWORD -->
+  <ng-template #accountPassword>
+    <form
+        class="sign-up-form"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="1.2rem">
+      <mat-form-field
+          ngClass.lt-md="form-input-mobile"
+          ngClass.gt-sm="form-input-desktop">
+        <input
+            matInput
+            type="password"
+            placeholder="Enter your password"
+            required>
+      </mat-form-field>
+      <mat-form-field
+          ngClass.lt-md="form-input-mobile"
+          ngClass.gt-sm="form-input-desktop">
+        <input
+            matInput
+            type="password"
+            placeholder="Repeat your password"
+            required>
+      </mat-form-field>
+    </form>
+  </ng-template>
 
-<!-- template for filling out the user's account password -->
-<ng-template #accountPassword>
-  <form
-      class="sign-up-form"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="1.2rem">
-    <mat-form-field
-        ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
-      <input
-          matInput
-          type="password"
-          placeholder="Enter your password"
-          required>
-    </mat-form-field>
-    <mat-form-field
-        ngClass.lt-md="form-input-mobile"
-        ngClass.gt-sm="form-input-desktop">
-      <input
-          matInput
-          type="password"
-          placeholder="Repeat your password"
-          required>
-    </mat-form-field>
-  </form>
-</ng-template>
-
-<!-- form done -->
-<ng-template #formDone>
-  <div
-      class="sign-up-form"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="1.2rem">
-    <h3>you are now done </h3>
-    <span>Press submit to create your account...</span>
-  </div>
-</ng-template>
-
-
-<!--
-
-  Horizontal big screen stepper
-
--->
-<mat-horizontal-stepper *ngIf="!isMobile"  #stepper>
-
-  <!-- first step -->
-  <mat-step>
-    <ng-template matStepLabel>Fill out your name</ng-template>
-    <ng-container *ngTemplateOutlet="userName"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="end center">
-        <button
-        color="accent"
-        mat-raised-button
-        matStepperNext>
-        Next
-      </button>
+<!-- FORM COMPLETED -->
+  <ng-template #formDone>
+    <div
+        class="sign-up-form"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="1.2rem">
+      <h3>you are now done </h3>
+      <span>Press submit to create your account...</span>
     </div>
-  </mat-step>
+  </ng-template>
 
-  <!-- second step -->
-  <mat-step >
-    <ng-template matStepLabel>Personal data</ng-template>
-    <ng-container *ngTemplateOutlet="personalData"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperPrevious>
-        Back
-      </button>&nbsp;
-      <button
+
+<!-- /***
+*    ┬ ┬┌─┐┬─┐┬┌─┐┌─┐┌┐┌┌┬┐┌─┐┬
+*    ├─┤│ │├┬┘│┌─┘│ ││││ │ ├─┤│
+*    ┴ ┴└─┘┴└─┴└─┘└─┘┘└┘ ┴ ┴ ┴┴─┘
+*    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐
+*     │ ├┤ │││├─┘│  ├─┤ │ ├┤
+*     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘
+*/ -->
+  <mat-horizontal-stepper *ngIf="!isMobile"  #stepper>
+
+<!-- 1st STEP - USER'S NAME -->
+    <mat-step>
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-container *ngTemplateOutlet="userName"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="end center">
+          <button
           color="accent"
           mat-raised-button
           matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
+          Next
+        </button>
+      </div>
+    </mat-step>
 
-  <!-- third step -->
-  <mat-step>
-    <ng-template matStepLabel>Account data</ng-template>
-    <ng-container *ngTemplateOutlet="accountData"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperPrevious>
-        Back
-      </button>&nbsp;
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
-
-  <!-- fourth step -->
-  <mat-step>
-    <ng-template matStepLabel>Set account password</ng-template>
-    <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperPrevious>
-        Back
-      </button>&nbsp;
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
-
-  <!-- last step -->
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <ng-container *ngTemplateOutlet="formDone"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
+<!-- 2nd STEP - USER'S PERSONAL DATA -->
+    <mat-step >
+      <ng-template matStepLabel>Personal data</ng-template>
+      <ng-container *ngTemplateOutlet="personalData"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
         <button
             color="accent"
             mat-raised-button
             matStepperPrevious>
-          Next
+          Back
         </button>&nbsp;
         <button
-            color="warn"
-            mat-raised-button
-            (click)="stepper.reset()"
-            matStepperNext>
-          Reset
-        </button>&nbsp;
-        <button
-            type="submit"
             color="accent"
-            mat-raised-button>
-          Send
+            mat-raised-button
+            matStepperNext>
+          Next
         </button>
       </div>
-  </mat-step>
+    </mat-step>
 
-</mat-horizontal-stepper>
-
-
-
-<!--
-
-  Vertical big screen stepper
-
--->
-<mat-vertical-stepper *ngIf="isMobile"  #stepper>
-
-  <!-- first step -->
-  <mat-step>
-    <ng-template matStepLabel>Fill out your name</ng-template>
-    <ng-container *ngTemplateOutlet="userName"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="end center">
-        <button
-        color="accent"
-        mat-raised-button
-        matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
-
-  <!-- second step -->
-  <mat-step>
-    <ng-template matStepLabel>Personal data</ng-template>
-    <ng-container *ngTemplateOutlet="personalData"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperPrevious>
-        Back
-      </button>&nbsp;
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
-
-  <!-- third step -->
-  <mat-step>
-    <ng-template matStepLabel>Account data</ng-template>
-    <ng-container *ngTemplateOutlet="accountData"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperPrevious>
-        Back
-      </button>&nbsp;
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
-
-  <!-- fourth step -->
-  <mat-step>
-    <ng-template matStepLabel>Set account password</ng-template>
-    <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperPrevious>
-        Back
-      </button>&nbsp;
-      <button
-          color="accent"
-          mat-raised-button
-          matStepperNext>
-        Next
-      </button>
-    </div>
-  </mat-step>
-
-  <!-- last step -->
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <ng-container *ngTemplateOutlet="formDone"></ng-container>
-    <!-- buttons -->
-    <div fxLayoutAlign="space-between center">
+<!-- 3rd STEP - USER'S ACCOUNT DATA-->
+    <mat-step>
+      <ng-template matStepLabel>Account data</ng-template>
+      <ng-container *ngTemplateOutlet="accountData"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
         <button
             color="accent"
             mat-raised-button
             matStepperPrevious>
-          Next
+          Back
         </button>&nbsp;
         <button
-            color="warn"
-            mat-raised-button
-            (click)="stepper.reset()"
-            matStepperNext>
-          Reset
-        </button>&nbsp;
-        <button
-            type="submit"
             color="accent"
-            mat-raised-button>
-          Send
+            mat-raised-button
+            matStepperNext>
+          Next
         </button>
       </div>
-  </mat-step>
+    </mat-step>
 
-</mat-vertical-stepper>
+<!-- 4th STEP - USER'S PASSWORD -->
+    <mat-step>
+      <ng-template matStepLabel>Set account password</ng-template>
+      <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperPrevious>
+          Back
+        </button>&nbsp;
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperNext>
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+<!-- LAST STEP - FORM COMPLETED -->
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <ng-container *ngTemplateOutlet="formDone"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
+          <button
+              color="accent"
+              mat-raised-button
+              matStepperPrevious>
+            Next
+          </button>&nbsp;
+          <button
+              color="warn"
+              mat-raised-button
+              (click)="stepper.reset()"
+              matStepperNext>
+            Reset
+          </button>&nbsp;
+          <button
+              type="submit"
+              color="accent"
+              mat-raised-button>
+            Send
+          </button>
+        </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+
+
+<!-- /***
+*    ┬  ┬┌─┐┬─┐┌┬┐┬┌─┐┌─┐┬
+*    └┐┌┘├┤ ├┬┘ │ ││  ├─┤│
+*     └┘ └─┘┴└─ ┴ ┴└─┘┴ ┴┴─┘
+*    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐
+*     │ ├┤ │││├─┘│  ├─┤ │ ├┤
+*     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘
+*/ -->
+  <mat-vertical-stepper *ngIf="isMobile"  #stepper>
+
+<!-- 1st STEP - USER'S NAME -->
+    <mat-step>
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-container *ngTemplateOutlet="userName"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="end center">
+          <button
+          color="accent"
+          mat-raised-button
+          matStepperNext>
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+<!-- 2nd STEP - USER'S PERSONAL DATA -->
+    <mat-step>
+      <ng-template matStepLabel>Personal data</ng-template>
+      <ng-container *ngTemplateOutlet="personalData"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperPrevious>
+          Back
+        </button>&nbsp;
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperNext>
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+<!-- 3rd STEP - USER'S ACCOUNT DATA-->
+    <mat-step>
+      <ng-template matStepLabel>Account data</ng-template>
+      <ng-container *ngTemplateOutlet="accountData"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperPrevious>
+          Back
+        </button>&nbsp;
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperNext>
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+<!-- 4th STEP - USER'S PASSWORD -->
+    <mat-step>
+      <ng-template matStepLabel>Set account password</ng-template>
+      <ng-container *ngTemplateOutlet="accountPassword"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperPrevious>
+          Back
+        </button>&nbsp;
+        <button
+            color="accent"
+            mat-raised-button
+            matStepperNext>
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+<!-- LAST STEP - FORM COMPLETED -->
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <ng-container *ngTemplateOutlet="formDone"></ng-container>
+      <!-- buttons -->
+      <div fxLayoutAlign="space-between center">
+          <button
+              color="accent"
+              mat-raised-button
+              matStepperPrevious>
+            Next
+          </button>&nbsp;
+          <button
+              color="warn"
+              mat-raised-button
+              (click)="stepper.reset()"
+              matStepperNext>
+            Reset
+          </button>&nbsp;
+          <button
+              type="submit"
+              color="accent"
+              mat-raised-button>
+            Send
+          </button>
+        </div>
+    </mat-step>
+
+  </mat-vertical-stepper>
+
+
+</mat-card>

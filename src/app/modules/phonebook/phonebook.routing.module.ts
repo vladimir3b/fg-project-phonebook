@@ -7,11 +7,7 @@ import { EditContactsComponent } from './components/edit-contacts/edit-contacts.
 
 const ROUTERS: Routes = [
   {
-    path: 'view-contacts',
-    component: ViewContactsComponent
-  },
-  {
-    path: 'edit-contacts',
+    path: 'phonebook',
     component: EditContactsComponent
   }
 ];

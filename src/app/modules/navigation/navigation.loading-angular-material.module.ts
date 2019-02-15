@@ -5,7 +5,8 @@ import {
   MatIconModule,
   MatSidenavModule,
   MatButtonModule,
-  MatListModule
+  MatListModule,
+  MatCardModule
 } from '@angular/material';
 
 const LOADING_AND_EXPORTING = {
@@ -16,7 +17,8 @@ const LOADING_AND_EXPORTING = {
     FlexLayoutModule,
     MatSidenavModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ]
 };
 

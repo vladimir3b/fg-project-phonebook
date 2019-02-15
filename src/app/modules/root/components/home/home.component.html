@@ -1,7 +1,38 @@
-<mat-card class="home-container">
-  <mat-card-content>
-    <!-- Carousel -->
+<!-- /***
+ *    ██╗  ██╗ ██████╗ ███╗   ███╗███████╗
+ *    ██║  ██║██╔═══██╗████╗ ████║██╔════╝
+ *    ███████║██║   ██║██╔████╔██║█████╗
+ *    ██╔══██║██║   ██║██║╚██╔╝██║██╔══╝
+ *    ██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ██╗  ██╗████████╗███╗   ███╗██╗
+ *    ██║  ██║╚══██╔══╝████╗ ████║██║
+ *    ███████║   ██║   ██╔████╔██║██║
+ *    ██╔══██║   ██║   ██║╚██╔╝██║██║
+ *    ██║  ██║   ██║   ██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝
+ *
+ */ -->
+<mat-card fxFill class="home-container">
+  <mat-card-content
+    fxLayout="column"
+    fxLayoutGap="2rem">
+
+<!-- /***
+*    ┌─┐┌─┐┬─┐┌─┐┬ ┬┌─┐┌─┐┬
+*    │  ├─┤├┬┘│ ││ │└─┐├┤ │
+*    └─┘┴ ┴┴└─└─┘└─┘└─┘└─┘┴─┘
+*/ -->
     <mat-carousel
+        class="overwrite"
         timings="250ms ease-in"
         [autoplay]="true"
         interval="5000"
@@ -21,30 +52,45 @@
           [image]="slide"
           [hideOverlay]="false">
         <div class="carousel-caption">
-          <div
-              [ngClass.gt-sm]="['caption-big-screen']"
-              [ngClass.lt-md]="['caption-medium-screen']"
-              [ngClass.xs]="['caption-small-screen']">
+          <div [ngClass]="{
+            'carousel-logo-desktop': deviceType === 'desktop',
+            'carousel-logo-tablet': deviceType === 'tablet',
+            'carousel-logo-mobile': deviceType === 'mobile'
+          }">
             Welcome to your<br>
-            <span>PHONEBOOK</span>
+            <span>
+              PHONEBOOK
+            </span>
           </div>
         </div>
       </mat-carousel-slide>
     </mat-carousel>
 
-    <!-- Page content -->
+
+<!-- /***
+*    ┌─┐┬─┐┌┬┐┬┌─┐┬  ┌─┐┌─┐
+*    ├─┤├┬┘ │ ││  │  ├┤ └─┐
+*    ┴ ┴┴└─ ┴ ┴└─┘┴─┘└─┘└─┘
+*/ -->
     <div
+        class="articles"
         [fxLayout]="(deviceType === 'desktop') ? 'row' : 'column'"
         fxLayoutAlign="space-around stretch"
         fxLayoutGap="2rem">
       <ng-container *ngFor="let section of content">
-        <div fxFlex>
+        <div
+            class=""
+            fxFlex>
           <div
               fxLayout="column"
               fxLayoutAlign="start center"
               fxLayoutGap="2rem">
             <!-- icon -->
-            <div class="icon">
+            <div [ngClass]="{
+              'icon-desktop': deviceType === 'desktop',
+              'icon-tablet': deviceType === 'tablet',
+              'icon-mobile': deviceType === 'mobile'
+            }">
               <mat-icon>
                 {{ section.icon }}
               </mat-icon>
@@ -60,4 +106,5 @@
       </ng-container>
     </div>
   </mat-card-content>
+
 </mat-card>

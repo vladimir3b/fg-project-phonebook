@@ -1,7 +1,32 @@
+/***
+ *    ██╗  ██╗ ██████╗ ███╗   ███╗███████╗
+ *    ██║  ██║██╔═══██╗████╗ ████║██╔════╝
+ *    ███████║██║   ██║██╔████╔██║█████╗
+ *    ██╔══██║██║   ██║██║╚██╔╝██║██╔══╝
+ *    ██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ███████╗ ██████╗███████╗███████╗
+ *    ██╔════╝██╔════╝██╔════╝██╔════╝
+ *    ███████╗██║     ███████╗███████╗
+ *    ╚════██║██║     ╚════██║╚════██║
+ *    ███████║╚██████╗███████║███████║
+ *    ╚══════╝ ╚═════╝╚══════╝╚══════╝
+ *
+ */
 @import '../../../../static-resources/styles/predefined/predefined-variables.scss';
 @import '../../../../static-resources/styles/predefined/predefined-mixins.scss';
 
-$ICON_SIZE: 7rem;
+$ICON_SIZE_DESKTOP: 7rem;
+$ICON_SIZE_TABLET: 5.5rem;
+$ICON_SIZE_MOBILE: 4rem;
 $BORDER_SIZE_FACTOR: 1.2;
 
 .home-container {
@@ -10,11 +35,88 @@ $BORDER_SIZE_FACTOR: 1.2;
   @include no-shadow();
 }
 
-.icon {
+
+/***
+ *    ┌─┐┬─┐┌┬┐┬┌─┐┬  ┌─┐┌─┐
+ *    ├─┤├┬┘ │ ││  │  ├┤ └─┐
+ *    ┴ ┴┴└─ ┴ ┴└─┘┴─┘└─┘└─┘
+ */
+.icon-desktop {
   @include icon-with-border(
-    $ICON_SIZE,
+    $ICON_SIZE_DESKTOP,
     $BORDER_SIZE_FACTOR,
     $text-color-light,
     $primary-color-dark
   );
 }
+
+.icon-tablet {
+  @include icon-with-border(
+    $ICON_SIZE_TABLET,
+    $BORDER_SIZE_FACTOR,
+    $text-color-light,
+    $primary-color-dark
+  );
+}
+
+.icon-mobile {
+  @include icon-with-border(
+    $ICON_SIZE_MOBILE,
+    $BORDER_SIZE_FACTOR,
+    $text-color-light,
+    $primary-color-dark
+  );
+}
+
+.articles {
+  p {
+    line-height: 1.8rem;
+  }
+  margin: 0 (2 * $distance-from-the-margins);
+}
+
+
+/***
+ *    ┌─┐┌─┐┬─┐┌─┐┬ ┬┌─┐┌─┐┬
+ *    │  ├─┤├┬┘│ ││ │└─┐├┤ │
+ *    └─┘┴ ┴┴└─└─┘└─┘└─┘└─┘┴─┘
+ */
+.carousel-logo-desktop {
+  span {
+    @include carousel-logo('desktop');
+  }
+  font-size: 3.5rem;
+  line-height: 50%;
+  text-align: right;
+  color: $reserved-color;
+}
+
+.carousel-logo-tablet {
+  span {
+    @include carousel-logo('tablet');
+  }
+  font-size: 2rem;
+  line-height: 50%;
+  text-align: right;
+  color: $reserved-color;
+}
+
+.carousel-logo-mobile {
+  span {
+    @include carousel-logo('mobile');
+  }
+  font-size: 1.2rem;
+  line-height: 50%;
+  text-align: right;
+  color: $reserved-color;
+}
+
+.carousel-caption {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
