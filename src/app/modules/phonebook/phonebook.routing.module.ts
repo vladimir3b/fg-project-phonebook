@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // My imports
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
-import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
+import { PhonebookComponent } from './components/phonebook/phonebook.component';
 
 
 const ROUTERS: Routes = [
   {
     path: 'phonebook',
-    component: EditContactsComponent
+    component: PhonebookComponent
   }
 ];
 

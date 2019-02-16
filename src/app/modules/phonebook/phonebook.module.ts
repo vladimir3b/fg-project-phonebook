@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 // My imports
 import { DeviceService } from '../root/services/device.service';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
-import { EditContactsComponent } from './components/edit-contacts/edit-contacts.component';
+import { PhonebookComponent } from './components/phonebook/phonebook.component';
 import { FakeLoadingDataService } from './../../data/fake-data/fake-loading-data.service';
 import { DeleteContactDialogComponent } from './components/delete-contact-dialog/delete-contact-dialog.component';
 import { PhonebookLoadingAngularMaterialModule } from './phonebook.loaging-angular-material.module';
@@ -13,7 +13,7 @@ import { PhonebookRoutingModule } from './phonebook.routing.module';
 
 const LOADING_AND_EXPORTING = {
   declarations: [
-    EditContactsComponent,
+    PhonebookComponent,
     EditContactComponent,
     ViewContactsComponent,
     ViewContactComponent,

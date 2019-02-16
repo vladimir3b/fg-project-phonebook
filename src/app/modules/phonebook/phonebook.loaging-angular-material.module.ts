@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
@@ -8,6 +9,8 @@ import {
   MatFormFieldModule,
   MatTableModule,
   MatCardModule,
+  MatPaginatorModule,
+  MatSortModule,
 } from '@angular/material';
 
 const LOADING_AND_EXPORTING = {
@@ -22,12 +25,15 @@ const LOADING_AND_EXPORTING = {
     MatButtonModule,
     MatTableModule,
     MatCardModule,
+    MatSortModule,
+    MatPaginatorModule
   ]
 };
 
 @NgModule({
   declarations: [ ...LOADING_AND_EXPORTING.declarations ],
   imports: [
+    CommonModule,
     ...LOADING_AND_EXPORTING.imports
   ],
   exports: [

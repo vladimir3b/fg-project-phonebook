@@ -90,9 +90,10 @@
   // by using !important.
   margin: 0 !important;
   padding: $distance-from-the-margins
-           $distance-from-the-margins
+           (2 * $distance-from-the-margins)
            (7 * $distance-from-the-margins)
-           $distance-from-the-margins !important;
+           (2 * $distance-from-the-margins)
+           !important;
   border-radius: 0 !important;
   // height: inherit;
   background-color: white;
