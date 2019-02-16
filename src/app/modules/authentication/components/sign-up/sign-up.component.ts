@@ -1,7 +1,36 @@
-import { DeviceService } from '../../../root/services/device.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { genderType } from 'src/app/data/models/types';
+/***
+ *    ███████╗██╗ ██████╗ ███╗   ██╗      ██╗   ██╗██████╗
+ *    ██╔════╝██║██╔════╝ ████╗  ██║      ██║   ██║██╔══██╗
+ *    ███████╗██║██║  ███╗██╔██╗ ██║█████╗██║   ██║██████╔╝
+ *    ╚════██║██║██║   ██║██║╚██╗██║╚════╝██║   ██║██╔═══╝
+ *    ███████║██║╚██████╔╝██║ ╚████║      ╚██████╔╝██║
+ *    ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝       ╚═════╝ ╚═╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ████████╗███████╗
+ *    ╚══██╔══╝██╔════╝
+ *       ██║   ███████╗
+ *       ██║   ╚════██║
+ *       ██║   ███████║
+ *       ╚═╝   ╚══════╝
+ *
+ */
+import {
+  Component,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
 import { Subscription } from 'rxjs';
+// MY IMPORTS
+import { genderType } from 'src/app/data/models/types';
+import { devicesType } from '../../../root/models/types';
+import { DeviceService } from '../../../root/services/device.service';
 
 @Component({
   selector: 'fg-sign-up',
@@ -10,33 +39,55 @@ import { Subscription } from 'rxjs';
 })
 export class SignUpComponent implements OnInit, OnDestroy {
 
-  // PROPERTIES
+ /***
+ *    ┌─┐┬─┐┌─┐┌─┐┌─┐┬─┐┌┬┐┬┌─┐┌─┐
+ *    ├─┘├┬┘│ │├─┘├┤ ├┬┘ │ │├┤ └─┐
+ *    ┴  ┴└─└─┘┴  └─┘┴└─ ┴ ┴└─┘└─┘
+ */
   private _watchers: Array<Subscription>;
   public gender: genderType;
-  public isMobile: boolean;
+  public deviceType: devicesType;
 
-  // CONSTRUCTOR
+
+/***
+ *    ┌─┐┌─┐┌┐┌┌─┐┌┬┐┬─┐┬ ┬┌─┐┌┬┐┌─┐┬─┐
+ *    │  │ ││││└─┐ │ ├┬┘│ ││   │ │ │├┬┘
+ *    └─┘└─┘┘└┘└─┘ ┴ ┴└─└─┘└─┘ ┴ └─┘┴└─
+ */
   constructor(private _device: DeviceService) {
     this._watchers = [];
-    this.isMobile = false;
     this.gender = 'male';
   }
 
-  // LIFE CYCLE HOOKS
+
+/***
+ *    ┬  ┬┌─┐┌─┐
+ *    │  │├┤ ├┤
+ *    ┴─┘┴└  └─┘
+ *    ┌─┐┬ ┬┌─┐┬  ┌─┐
+ *    │  └┬┘│  │  ├┤
+ *    └─┘ ┴ └─┘┴─┘└─┘
+ *    ┬ ┬┌─┐┌─┐┬┌─┌─┐
+ *    ├─┤│ ││ │├┴┐└─┐
+ *    ┴ ┴└─┘└─┘┴ ┴└─┘
+ */
   public ngOnInit(): void {
-    // this._watchers.push(this._deviceType.mobile.subscribe((isMobile: boolean) => {
-    //   this.isMobile = isMobile;
-    // }));
+    this._watchers.push(this._device.type
+      .subscribe((deviceType: devicesType) => this.deviceType = deviceType));
   }
 
   public ngOnDestroy(): void {
-    this._watchers.forEach((watcher: Subscription) => {
-      watcher.unsubscribe();
-    });
+    this._watchers.forEach((watcher: Subscription) => watcher.unsubscribe());
   }
 
-  // METHODS
+
+/***
+ *    ┌┬┐┌─┐┌┬┐┬ ┬┌─┐┌┬┐┌─┐
+ *    │││├┤  │ ├─┤│ │ ││└─┐
+ *    ┴ ┴└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
+ */
   public changeGender(event: boolean):void {
     this.gender = (event) ? 'male' : 'female';
   }
+
 }

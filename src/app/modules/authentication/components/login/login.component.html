@@ -1,3 +1,26 @@
+<!-- /***
+ *    ██╗      ██████╗  ██████╗ ██╗███╗   ██╗
+ *    ██║     ██╔═══██╗██╔════╝ ██║████╗  ██║
+ *    ██║     ██║   ██║██║  ███╗██║██╔██╗ ██║
+ *    ██║     ██║   ██║██║   ██║██║██║╚██╗██║
+ *    ███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║
+ *    ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ██╗  ██╗████████╗███╗   ███╗██╗
+ *    ██║  ██║╚══██╔══╝████╗ ████║██║
+ *    ███████║   ██║   ██╔████╔██║██║
+ *    ██╔══██║   ██║   ██║╚██╔╝██║██║
+ *    ██║  ██║   ██║   ██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝
+ *
+ */ -->
 <mat-card fxFill class="container">
   <form
       class="login-form"
@@ -5,24 +28,31 @@
       fxLayoutAlign="center center"
       fxLayoutGap="1.2rem">
 
-    <mat-form-field
-        ngClass.lt-sm="form-input-mobile"
-        ngClass.gt-xs="form-input-desktop">
+<!-- USERNAME OR EMAIL -->
+    <mat-form-field [ngClass]="{
+      'form-input-desktop': deviceType === 'desktop',
+      'form-input-tablet': deviceType === 'tablet',
+      'form-input-mobile': deviceType === 'mobile'
+    }">
       <input
           matInput
           type="text"
           placeholder="Your username or email">
     </mat-form-field>
 
-    <mat-form-field
-        ngClass.lt-sm="form-input-mobile"
-        ngClass.gt-xs="form-input-desktop">
+<!-- PASSWORD -->
+    <mat-form-field [ngClass]="{
+      'form-input-desktop': deviceType === 'desktop',
+      'form-input-tablet': deviceType === 'tablet',
+      'form-input-mobile': deviceType === 'mobile'
+    }">
       <input
         matInput
         type="password"
         placeholder="Your password">
     </mat-form-field>
 
+<!-- LOGIN BUTTON -->
     <button
         color="accent"
         mat-raised-button

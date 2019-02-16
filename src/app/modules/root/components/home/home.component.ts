@@ -31,6 +31,7 @@ import { DeviceService } from './../../services/device.service';
 import { Subscription } from 'rxjs';
 import { devicesType } from '../../models/types';
 
+
 @Component({
   selector: 'fg-home',
   templateUrl: './home.component.html',

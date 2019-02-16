@@ -99,6 +99,7 @@
   @include no-shadow();
 }
 
+
 /***
  *    ┌─┐┬  ┬┌─┐┬─┐┬ ┬┬─┐┬┌┬┐┌─┐
  *    │ │└┐┌┘├┤ ├┬┘│││├┬┘│ │ ├┤
@@ -110,3 +111,26 @@
 .carousel-slide-overlay {
   background-color: rgba(darken($accent-color, 20), 0.5) !important;
 }
+
+
+/***
+ *    ┌─┐┌─┐┬─┐┌┬┐┌─┐
+ *    ├┤ │ │├┬┘│││└─┐
+ *    └  └─┘┴└─┴ ┴└─┘
+ *    ┌─┐┬  ┌─┐┌┬┐┌─┐┌┐┌┌┬┐┌─┐
+ *    ├┤ │  ├┤ │││├┤ │││ │ └─┐
+ *    └─┘┴─┘└─┘┴ ┴└─┘┘└┘ ┴ └─┘
+ */
+.form-input-desktop {
+  width: 19rem;
+}
+
+.form-input-tablet {
+  width: 23rem;
+}
+
+.form-input-mobile {
+  width: 100%;
+  padding: 0 (2 * $distance-from-the-margins);
+}
+

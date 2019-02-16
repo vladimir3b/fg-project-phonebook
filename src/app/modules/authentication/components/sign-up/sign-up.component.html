@@ -35,22 +35,25 @@
 <!-- USER'S NAME -->
   <ng-template #userName>
     <form
-        class="sign-up-form"
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="1.2rem">
-      <mat-form-field
-          ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+      <mat-form-field [ngClass]="{
+        'form-input-desktop': deviceType === 'desktop',
+        'form-input-tablet': deviceType === 'tablet',
+        'form-input-mobile': deviceType === 'mobile'
+      }">
         <input
             matInput
             type="text"
             required
             placeholder="Please enter your first name">
       </mat-form-field>
-      <mat-form-field
-          ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+      <mat-form-field [ngClass]="{
+        'form-input-desktop': deviceType === 'desktop',
+        'form-input-tablet': deviceType === 'tablet',
+        'form-input-mobile': deviceType === 'mobile'
+      }">
         <input
             matInput
             type="text"
@@ -60,16 +63,18 @@
     </form>
   </ng-template>
 
-  <!-- USER'S PERSONAL DATA -->
+<!-- USER'S PERSONAL DATA -->
     <ng-template #personalData>
       <form
-          class="sign-up-form"
+
           fxLayout="column"
           fxLayoutAlign="center center"
           fxLayoutGap="1.2rem">
-        <mat-form-field
-            ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+        <mat-form-field [ngClass]="{
+          'form-input-desktop': deviceType === 'desktop',
+          'form-input-tablet': deviceType === 'tablet',
+          'form-input-mobile': deviceType === 'mobile'
+        }">
           <input
               matInput
               [matDatepicker]="picker"
@@ -89,22 +94,25 @@
 <!-- USER'S ACCOUNT DATA-->
   <ng-template #accountData>
     <form
-        class="sign-up-form"
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="1.2rem">
-      <mat-form-field
-          ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+      <mat-form-field [ngClass]="{
+        'form-input-desktop': deviceType === 'desktop',
+        'form-input-tablet': deviceType === 'tablet',
+        'form-input-mobile': deviceType === 'mobile'
+      }">
         <input
             matInput
             type="text"
             placeholder="Your username"
             required>
       </mat-form-field>
-      <mat-form-field
-          ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+      <mat-form-field [ngClass]="{
+        'form-input-desktop': deviceType === 'desktop',
+        'form-input-tablet': deviceType === 'tablet',
+        'form-input-mobile': deviceType === 'mobile'
+      }">
         <input
             matInput
             type="email"
@@ -117,22 +125,25 @@
 <!-- USER'S PASSWORD -->
   <ng-template #accountPassword>
     <form
-        class="sign-up-form"
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="1.2rem">
-      <mat-form-field
-          ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+      <mat-form-field [ngClass]="{
+        'form-input-desktop': deviceType === 'desktop',
+        'form-input-tablet': deviceType === 'tablet',
+        'form-input-mobile': deviceType === 'mobile'
+      }">
         <input
             matInput
             type="password"
             placeholder="Enter your password"
             required>
       </mat-form-field>
-      <mat-form-field
-          ngClass.lt-md="form-input-mobile"
-          ngClass.gt-sm="form-input-desktop">
+      <mat-form-field [ngClass]="{
+        'form-input-desktop': deviceType === 'desktop',
+        'form-input-tablet': deviceType === 'tablet',
+        'form-input-mobile': deviceType === 'mobile'
+      }">
         <input
             matInput
             type="password"
@@ -145,25 +156,25 @@
 <!-- FORM COMPLETED -->
   <ng-template #formDone>
     <div
-        class="sign-up-form"
+        class="form"
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="1.2rem">
-      <h3>you are now done </h3>
+      <h5>form completed</h5>
       <span>Press submit to create your account...</span>
     </div>
   </ng-template>
 
 
 <!-- /***
-*    ┬ ┬┌─┐┬─┐┬┌─┐┌─┐┌┐┌┌┬┐┌─┐┬
-*    ├─┤│ │├┬┘│┌─┘│ ││││ │ ├─┤│
-*    ┴ ┴└─┘┴└─┴└─┘└─┘┘└┘ ┴ ┴ ┴┴─┘
+*    ┌┬┐┌─┐┌─┐┌┬┐┌─┐┌─┐
+*     ││├┤ └─┐ │ │ │├─┘
+*    ─┴┘└─┘└─┘ ┴ └─┘┴
 *    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐
 *     │ ├┤ │││├─┘│  ├─┤ │ ├┤
 *     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘
 */ -->
-  <mat-horizontal-stepper *ngIf="!isMobile"  #stepper>
+  <mat-horizontal-stepper *ngIf="deviceType === 'desktop'"  #stepper>
 
 <!-- 1st STEP - USER'S NAME -->
     <mat-step>
@@ -274,15 +285,15 @@
   </mat-horizontal-stepper>
 
 
-<!-- /***
-*    ┬  ┬┌─┐┬─┐┌┬┐┬┌─┐┌─┐┬
-*    └┐┌┘├┤ ├┬┘ │ ││  ├─┤│
-*     └┘ └─┘┴└─ ┴ ┴└─┘┴ ┴┴─┘
-*    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐
-*     │ ├┤ │││├─┘│  ├─┤ │ ├┤
-*     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘
-*/ -->
-  <mat-vertical-stepper *ngIf="isMobile"  #stepper>
+  <!-- /***
+  *    ┌┬┐┌─┐┌┐ ┬  ┌─┐┌┬┐
+  *     │ ├─┤├┴┐│  ├┤  │
+  *     ┴ ┴ ┴└─┘┴─┘└─┘ ┴
+  *    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐
+  *     │ ├┤ │││├─┘│  ├─┤ │ ├┤
+  *     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘
+  */ -->
+  <mat-vertical-stepper *ngIf="deviceType === 'tablet'"  #stepper>
 
 <!-- 1st STEP - USER'S NAME -->
     <mat-step>
@@ -392,5 +403,19 @@
 
   </mat-vertical-stepper>
 
+
+<!-- /***
+ *    ┌┬┐┌─┐┌┐ ┬┬  ┌─┐
+ *    ││││ │├┴┐││  ├┤
+ *    ┴ ┴└─┘└─┘┴┴─┘└─┘
+ *    ┌┬┐┌─┐┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐
+ *     │ ├┤ │││├─┘│  ├─┤ │ ├┤
+ *     ┴ └─┘┴ ┴┴  ┴─┘┴ ┴ ┴ └─┘
+ */ -->
+ <div *ngIf="deviceType === 'mobile'">
+  <p style="text-align: center">
+    Mobile stepper is under construction...
+  </p>
+ </div>
 
 </mat-card>
