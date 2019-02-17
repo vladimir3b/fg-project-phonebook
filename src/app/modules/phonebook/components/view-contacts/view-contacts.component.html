@@ -22,41 +22,97 @@
 *
 */ -->
 <div>
+
+<!-- /***
+*    ┌─┐┬┬ ┌┬┐┌─┐┬─┐
+*    ├┤ ││  │ ├┤ ├┬┘
+*    └  ┴┴─┘┴ └─┘┴└─
+*    ┌┬┐┌─┐┌┐ ┬  ┌─┐
+*     │ ├─┤├┴┐│  ├┤
+*     ┴ ┴ ┴└─┘┴─┘└─┘
+*/ -->
   <mat-form-field>
     <input
         matInput
         (keyup)="applyFilter($event.target.value)"
         placeholder="Filter">
   </mat-form-field>
+
+  <!-- table -->
   <div class="mat-elevation-z1">
     <table
         mat-table
         multiTemplateDataRows
         matSort
-        [dataSource]="contacts"> -->
+        [dataSource]="contacts">
 
-      <!-- Create columns to be listed -->
+
+<!-- /***
+*    ┌┬┐┌─┐┌┐ ┬  ┌─┐
+*     │ ├─┤├┴┐│  ├┤
+*     ┴ ┴ ┴└─┘┴─┘└─┘
+*    ┌─┐┌─┐┬  ┬ ┬┌┬┐┌┐┌┌─┐
+*    │  │ ││  │ │││││││└─┐
+*    └─┘└─┘┴─┘└─┘┴ ┴┘└┘└─┘
+*/ -->
       <ng-container
           *ngFor="let column of displayedColumns"
           matColumnDef="{{ column.label }}">
-        <th
-            mat-header-cell
-            mat-sort-header
-            *matHeaderCellDef>
-          {{ column.caption }}
-        </th>
-        <td
-            mat-cell
-            *matCellDef="let contact; let index = dataIndex">
-        <!-- Because we have 'multiTemplateDataRows' in table, we have to use dataIndex instead
-        of index, otherwise we will use index.
-        https://stackoverflow.com/questions/49648270/how-to-define-index-in-angular-material-table
-        -->
-         {{ detailsAboutContact(contact, column.label, index) }}
-        </td>
+
+<!-- SELECT COLUMN -->
+        <ng-container  *ngIf="['select'].indexOf(column.label) >= 0">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox
+                    (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)">
+                </mat-checkbox>
+              </td>
+        </ng-container>
+
+<!-- INDEX COLUMN -->
+        <ng-container *ngIf="['index'].indexOf(column.label) >= 0" >
+          <th
+              mat-header-cell
+              mat-sort-header
+              *matHeaderCellDef>
+            {{ column.caption }}
+          </th>
+          <td
+              mat-cell
+              *matCellDef="let index = dataIndex">
+          <!-- Because we have 'multiTemplateDataRows' in table, we have to use dataIndex instead
+          of index, otherwise we will use index.
+          https://stackoverflow.com/questions/49648270/how-to-define-index-in-angular-material-table
+          -->
+            {{ calculateIndex(index) }}
+          </td>
+        </ng-container>
+
+<!-- REST OF COLUMNS -->
+        <ng-container *ngIf="['select', 'index'].indexOf(column.label) === -1" >
+          <th
+              mat-header-cell
+              mat-sort-header
+              *matHeaderCellDef>
+            {{ column.caption }}
+          </th>
+          <td
+              mat-cell
+              *matCellDef="let contact">
+            {{ detailsAboutContact(contact, column.label) }}
+          </td>
+        </ng-container>
       </ng-container>
 
-      <!-- Create expanded details for selected person -->
+<!-- EXPANDED/DETAILS FOR PERSON -->
        <ng-container matColumnDef="expandedContact">
         <td
             mat-cell
@@ -69,15 +125,20 @@
           <div
               class="contact-details"
               [@detailExpand]="showExpanded(contact)">
-            <!-- <fg-view-contact
-                fxFlexFill
-                [contact]="contact">
-            </fg-view-contact> -->
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic distinctio fuga cumque, error, harum molestias magnam nisi minima illum sint a neque quibusdam ipsa consequatur officiis aperiam quasi? Eum, quas accusantium officia at obcaecati animi! A dolores accusamus, dolore neque animi ullam consequatur maxime odio quaerat? Est labore cupiditate veritatis fugiat ullam exercitationem quasi minima reiciendis quisquam facilis officiis aut consequatur repellat, vitae saepe temporibus culpa excepturi, quod repudiandae nobis ea. Illo ipsam debitis distinctio laudantium explicabo adipisci est doloribus assumenda consequatur earum, quibusdam reprehenderit. Recusandae fugit dolorum placeat consequuntur. Possimus nisi natus suscipit asperiores. Explicabo aut rem adipisci illo repellat architecto, alias praesentium neque reprehenderit ipsam magnam voluptatibus? Possimus saepe dolorum exercitationem quasi in aperiam consequuntur, voluptatum ex esse libero culpa iure adipisci aliquid veritatis nihil maxime sequi dicta vero qui excepturi voluptas! Accusamus culpa aut voluptate soluta dignissimos id at ea distinctio molestiae assumenda quas in ducimus nesciunt, qui sunt veniam? Aliquam eius molestiae quasi corrupti iste delectus, hic quod optio ad et deserunt quae, vel, vitae tempore nesciunt culpa illum. Fuga eos impedit praesentium quo tempore, provident voluptatibus veniam quia pariatur. Facilis debitis molestias, delectus deserunt nostrum fugit atque ut tempora nihil placeat optio ex dolorem nisi, sint voluptates iusto obcaecati porro nam voluptatem voluptatibus accusamus. Totam eius molestiae, ad autem ducimus dolorem iusto, temporibus vero commodi eaque voluptatibus dicta quod quis itaque enim. Nam, earum sed. Quia dignissimos, delectus quae aut suscipit optio dolores enim excepturi sed beatae, sit qui possimus harum praesentium repudiandae? Facere recusandae consequatur consequuntur iusto tempora sapiente nisi expedita molestias dolorum deleniti odit ipsa eaque reiciendis magni aspernatur, perferendis id, culpa illum sit aliquid! Illum quis dicta autem consequatur odit, minus mollitia. Beatae delectus ipsum error veniam voluptatum magnam nemo dolor nobis sed explicabo culpa, ex illum voluptatibus corporis exercitationem at.
+            <fg-view-contact [contact]="contact"></fg-view-contact>
           </div>
         </td>
       </ng-container>
 
+
+<!-- /***
+*    ┌┬┐┌─┐┌┐ ┬  ┌─┐
+*     │ ├─┤├┴┐│  ├┤
+*     ┴ ┴ ┴└─┘┴─┘└─┘
+*    ┬─┐┌─┐┬ ┬┌─┐
+*    ├┬┘│ ││││└─┐
+*    ┴└─└─┘└┴┘└─┘
+*/ -->
       <tr
           mat-header-row
           *matHeaderRowDef="displayedColumnsLabels()">
@@ -96,6 +157,12 @@
 
     </table>
 
+
+<!--/***
+*    ┌─┐┌─┐┌─┐┬┌┐┌┌─┐┌┬┐┌─┐┬─┐
+*    ├─┘├─┤│ ┬││││├─┤ │ │ │├┬┘
+*    ┴  ┴ ┴└─┘┴┘└┘┴ ┴ ┴ └─┘┴└─
+*/ -->
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
   </div>

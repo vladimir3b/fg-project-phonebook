@@ -34,14 +34,15 @@ table {
 
 .table-rows {
   &:hover {
-    background-color: $text-color-light;
+    background-color: $reserved-color-light;
   }
   &:active {
-    background-color: $text-color-light;
+    background-color: $reserved-color-light;
   }
 }
 
 .contact-details {
+  background-color: $text-color-light;
   overflow: hidden;
 }
 

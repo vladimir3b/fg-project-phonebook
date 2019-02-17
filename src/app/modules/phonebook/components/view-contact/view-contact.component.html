@@ -1,15 +1,51 @@
-<!-- <pre>
-  {{ contact | json}}
-</pre> -->
+<!-- /***
+ *    ██╗   ██╗██╗███████╗██╗    ██╗       ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗
+ *    ██║   ██║██║██╔════╝██║    ██║      ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝
+ *    ██║   ██║██║█████╗  ██║ █╗ ██║█████╗██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║
+ *    ╚██╗ ██╔╝██║██╔══╝  ██║███╗██║╚════╝██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║
+ *     ╚████╔╝ ██║███████╗╚███╔███╔╝      ╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║
+ *      ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝        ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝
+ *
+ *     ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗
+ *    ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗████╗  ██║██╔════╝████╗  ██║╚══██╔══╝
+ *    ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║
+ *    ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║
+ *    ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ╚██████╔╝██║ ╚████║███████╗██║ ╚████║   ██║
+ *     ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+ *
+ *    ██╗  ██╗████████╗███╗   ███╗██╗
+ *    ██║  ██║╚══██╔══╝████╗ ████║██║
+ *    ███████║   ██║   ██╔████╔██║██║
+ *    ██╔══██║   ██║   ██║╚██╔╝██║██║
+ *    ██║  ██║   ██║   ██║ ╚═╝ ██║███████╗
+ *    ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝
+ *
+ */ -->
 <div
     fxLayout="column wrap"
     fxLayoutAlign="center center">
 
-  <mat-card>
+  <mat-card [ngClass]="{
+    'mat-card-desktop': deviceType === 'desktop',
+    'mat-card-tablet': deviceType === 'tablet',
+    'mat-card-mobile': deviceType === 'mobile',
+    'mat-elevation-z2': true
+  }">
+
     <mat-card-header
         fxLayout="column">
       <mat-card-title>
-        <h4>{{ contact.firstName.toLowerCase() }}&nbsp;{{ contact.lastName.toLowerCase() }}</h4>
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between stretch">
+            <h2>{{ contact.firstName.toLowerCase() }}&nbsp;{{ contact.lastName.toLowerCase() }}</h2>
+            <div>
+              <button color="accent" mat-icon-button><mat-icon>edit</mat-icon></button>
+              <button color="accent" mat-icon-button><mat-icon>content_copy</mat-icon></button>
+              <button color="accent" mat-icon-button><mat-icon>print</mat-icon></button>
+              <button color="warn" mat-icon-button><mat-icon>delete</mat-icon></button>
+            </div>
+        </div>
         <mat-divider [inset]="true"></mat-divider>
       </mat-card-title>
       <mat-card-subtitle
@@ -17,99 +53,106 @@
           *ngIf="contact.alias">a.k.a. {{ contact.alias }}</mat-card-subtitle>
     </mat-card-header>
 
-    <mat-card-content>
-      <p>
-          {{ contact.notes }}
-      </p>
+    <mat-card-content
+        fxLayout="column"
+        fxLayoutGap="1rem"
+        class="mat-card-header-text">
+      <h6>Contact details</h6>
 
-      <div fxLayout="row">
-        <div fxFlex="2rem">
-          <mat-icon class="mat-18">cake</mat-icon>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div
+            style="text-align: center"
+            fxFlex="4rem" >
+          <mat-icon>cake</mat-icon>
         </div>
-        <div fxFlex="auto">{{ contact.birthday }}</div>
+        <div fxFlex="auto">{{ contact.birthday | date}}</div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div
+        style="text-align: center"
+        fxFlex="4rem" >
+        <mat-icon>wc</mat-icon>
+      </div>
+      <div fxFlex="auto">{{ contact.gender }}</div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <div
+      style="text-align: center"
+      fxFlex="4rem" >
+      <mat-icon>group</mat-icon>
+    </div>
+    <div fxFlex="auto">{{ contact.group }}</div>
+  </div>
+
+  <mat-divider [inset]="true"></mat-divider>
+  <div>
+    <ng-container *ngFor="let phone of contact.phones; let index = index">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div
+        style="text-align: center"
+        fxFlex="4rem" >
+        <mat-icon *ngIf="index === 0">contact_phone</mat-icon>
+      </div>
+      <div style="height: 24px" fxFlex="auto">{{ phone }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <mat-divider [inset]="true"></mat-divider>
+      <div>
+        <ng-container *ngFor="let email of contact.emails; let index = index">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div
+                style="text-align: center"
+                fxFlex="4rem" >
+              <mat-icon *ngIf="index === 0">contact_mail</mat-icon>
+            </div>
+            <div style="height: 24px" fxFlex="auto">{{ email }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <mat-divider [inset]="true"></mat-divider>
+      <div>
+        <ng-container *ngFor="let email of contact.emails; let index = index">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div
+                style="text-align: center"
+                fxFlex="4rem" >
+              <mat-icon *ngIf="index === 0">contact_mail</mat-icon>
+            </div>
+            <div style="height: 24px" fxFlex="auto">{{ email }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <mat-divider [inset]="true"></mat-divider>
+      <div>
+        <ng-container *ngFor="let address of contact.addresses; let index = index">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div
+                style="text-align: center"
+                fxFlex="4rem" >
+              <mat-icon *ngIf="index === 0">home</mat-icon>
+            </div>
+            <div style="height: 24px" fxFlex="auto">{{ address }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <mat-divider [inset]="true"></mat-divider>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div
+            style="text-align: center"
+            fxFlex="4rem" >
+          <mat-icon>speaker_notes</mat-icon>
+        </div>
+        <div fxFlex="auto">{{ contact.notes }}</div>
       </div>
 
     </mat-card-content>
-    <!-- <div
-        class="alias"
-        *ngIf="contact.alias">
-
-    </div>
-    <br>
-    <div fxLayout="row wrap">
-      <div class="caption">
-        Birthday:
-      </div>
-      <div>
-        {{ contact.birthday | date }}
-      </div>
-    </div>
-
-    <div fxLayout="row wrap">
-      <div class="caption">
-        Gender:
-      </div>
-      <div>
-        {{ contact.gender }}
-      </div>
-    </div>
-
-    <div fxLayout="row wrap">
-      <div class="caption">
-        Group:
-      </div>
-      <div>
-        {{ contact.group }}
-      </div>
-    </div>
-
-    <div fxLayout="row wrap">
-      <div class="caption">
-        Phones:
-      </div>
-      <div
-          fxLayout="column wrap"
-          fxLayoutAlign="center end">
-        <div *ngFor="let phone of contact.phones" >
-          {{ phone }}
-        </div>
-      </div>
-    </div>
-
-    <div fxLayout="row wrap">
-      <div class="caption">
-        Emails:
-      </div>
-      <div
-          fxLayout="column wrap"
-          fxLayoutAlign="center end">
-        <div *ngFor="let email of contact.emails" >
-          {{ email }}
-        </div>
-      </div>
-    </div>
-
-    <div fxLayout="row wrap">
-      <div class="caption">
-        Address:
-      </div>
-      <div
-          fxLayout="column wrap"
-          fxLayoutAlign="center end">
-        <div *ngFor="let address of contact.addresses" >
-          {{ address }}
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div fxLayout="row wrap">
-      <div class="caption">
-        Notes:
-      </div>
-      <div fxFlex="300px">
-        {{ contact.notes }}
-      </div>
-    </div> -->
 
   </mat-card>
 </div>

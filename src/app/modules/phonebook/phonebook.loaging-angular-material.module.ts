@@ -11,6 +11,7 @@ import {
   MatCardModule,
   MatPaginatorModule,
   MatSortModule,
+  MatCheckboxModule,
 } from '@angular/material';
 
 const LOADING_AND_EXPORTING = {
@@ -26,7 +27,8 @@ const LOADING_AND_EXPORTING = {
     MatTableModule,
     MatCardModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
   ]
 };
 

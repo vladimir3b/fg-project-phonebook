@@ -40,27 +40,12 @@ import {
   trigger
 } from '@angular/animations';
 import { Subscription } from 'rxjs';
-import { CdkTableModule } from '@angular/cdk/table';
+import { SelectionModel } from '@angular/cdk/collections';
 // MY IMPORTS
-import { CONTACTS } from './../../../../data/fake-data/contacts.fake-data';
 import { DeviceService } from '../../../root/services/device.service';
 import { FakeLoadingDataService } from './../../../../data/fake-data/fake-loading-data.service';
 import { IContactModel } from 'src/app/data/models/contact.model';
 import { devicesType } from '../../../root/models/types';
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-/** Constants used to fill up our data base. */
-const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
 
 @Component({
   selector: 'fg-view-contacts',
@@ -85,6 +70,7 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator) private _paginator: MatPaginator;
   @ViewChild(MatSort) private _sort: MatSort;
   private _expandedContact: IContactModel | null;
+  public selection: SelectionModel<IContactModel>;
   public deviceType: devicesType;
   public contacts: MatTableDataSource<IContactModel>;
   public displayedColumns: Array<{label: string, caption:string}>;
@@ -101,6 +87,7 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
   ) {
     this._expandedContact = null;
     this._watchers = [];
+    this.selection = new SelectionModel(true, []);
     this.contacts = new MatTableDataSource(this._fakeLoadingData.contactsData);
   }
 
@@ -123,6 +110,10 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
         case 'mobile':
           this.displayedColumns = [
             {
+              label: 'select',
+              caption: 'Select'
+            },
+            {
               label: 'firstName',
               caption: 'First Name'
             },
@@ -134,6 +125,10 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
           break;
         case 'tablet':
           this.displayedColumns = [
+            {
+              label: 'select',
+              caption: 'Select'
+            },
             {
               label: 'index',
               caption: 'Index',
@@ -154,6 +149,10 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
           break;
         default:
           this.displayedColumns = [
+            {
+              label: 'select',
+              caption: 'Select'
+            },
             {
               label: 'index',
               caption: 'Index'
@@ -214,9 +213,9 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     return this.displayedColumns.map(column => column.label);
   }
 
-  public detailsAboutContact(contact: IContactModel, label: string, index: number): string {
+  public detailsAboutContact(contact: IContactModel, label: string): string {
     switch(label) {
-      case 'index':  return `${this.calculateIndex(index)}`;
+      // case 'index':  return `${this.calculateIndex(index)}`;
       case 'mainPhone': return contact.phones[0];
       case 'mainEmail': return contact.emails[0];
       default: return contact[label];
@@ -239,6 +238,13 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     return this._expandedContact === contact;
   }
 
+  public isAllSelected(): boolean {
+    return this.selection.selected.length === this.contacts.data.length;
+  }
+
+  public masterToggle(): void {
+    this.isAllSelected() ? this.selection.clear() : this.contacts.data.forEach(row => this.selection.select(row));
+  }
 
 }
 
