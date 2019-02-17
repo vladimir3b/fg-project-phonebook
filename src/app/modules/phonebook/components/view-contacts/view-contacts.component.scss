@@ -54,3 +54,11 @@ table {
 .contact-details-opened {
   border-bottom: rgba(0, 0, 0, 0.12) 1px solid;
 }
+
+strong {
+  color: $primary-color;
+}
+
+strong ::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: $primary-color;
+}

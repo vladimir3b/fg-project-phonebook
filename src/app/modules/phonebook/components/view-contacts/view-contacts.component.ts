@@ -109,13 +109,35 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
       this.deviceType = deviceType;
       switch (this.deviceType) {
         case 'mobile':
-          this.displayedColumns = [ 'select', 'firstName', 'lastName' ];
+          this.displayedColumns = [
+            'select',
+            'firstName',
+            'lastName',
+            'expandButton'
+          ];
           break;
         case 'tablet':
-          this.displayedColumns = [ 'select', 'index', 'firstName', 'lastName', 'mainPhone' ];
+          this.displayedColumns = [
+            'select',
+            'index',
+            'firstName',
+            'lastName',
+            'mainPhone',
+            'expandButton'
+          ];
           break;
         default:
-          this.displayedColumns = [ 'select', 'index', 'firstName', 'lastName', 'alias', 'group', 'mainPhone', 'mainEmail' ];
+          this.displayedColumns = [
+            'select',
+            'index',
+            'firstName',
+            'lastName',
+            'alias',
+            'group',
+            'mainPhone',
+            'mainEmail',
+            'expandButton'
+          ];
       }
     })));
     this._watchers.push(this.contacts.connect()
