@@ -55,65 +55,137 @@
 *    │  │ ││  │ │││││││└─┐
 *    └─┘└─┘┴─┘└─┘┴ ┴┘└┘└─┘
 */ -->
-      <ng-container
-          *ngFor="let column of displayedColumns"
-          matColumnDef="{{ column.label }}">
 
-<!-- SELECT COLUMN -->
-        <ng-container  *ngIf="['select'].indexOf(column.label) >= 0">
-            <th mat-header-cell *matHeaderCellDef>
-                <mat-checkbox
-                    (change)="$event ? masterToggle() : null"
-                    [checked]="selection.hasValue() && isAllSelected()"
-                    [indeterminate]="selection.hasValue() && !isAllSelected()">
-                </mat-checkbox>
-              </th>
-              <td mat-cell *matCellDef="let row">
-                <mat-checkbox
-                  (click)="$event.stopPropagation()"
-                  (change)="$event ? selection.toggle(row) : null"
-                  [checked]="selection.isSelected(row)">
-                </mat-checkbox>
-              </td>
-        </ng-container>
-
-<!-- INDEX COLUMN -->
-        <ng-container *ngIf="['index'].indexOf(column.label) >= 0" >
-          <th
-              mat-header-cell
-              mat-sort-header
-              *matHeaderCellDef>
-            {{ column.caption }}
-          </th>
-          <td
-              mat-cell
-              *matCellDef="let index = dataIndex">
-          <!-- Because we have 'multiTemplateDataRows' in table, we have to use dataIndex instead
-          of index, otherwise we will use index.
-          https://stackoverflow.com/questions/49648270/how-to-define-index-in-angular-material-table
-          -->
-            {{ calculateIndex(index) }}
-          </td>
-        </ng-container>
-
-<!-- REST OF COLUMNS -->
-        <ng-container *ngIf="['select', 'index'].indexOf(column.label) === -1" >
-          <th
-              mat-header-cell
-              mat-sort-header
-              *matHeaderCellDef>
-            {{ column.caption }}
-          </th>
-          <td
-              mat-cell
-              *matCellDef="let contact">
-            {{ detailsAboutContact(contact, column.label) }}
-          </td>
-        </ng-container>
+      <!-- SELECT COLUMN -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+              (change)="$event ? masterToggle() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </td>
       </ng-container>
 
-<!-- EXPANDED/DETAILS FOR PERSON -->
-       <ng-container matColumnDef="expandedContact">
+      <!-- INDEX  -->
+      <ng-container matColumnDef="index">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          Index
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let index = dataIndex">
+            <!--
+              Because we have 'multiTemplateDataRows' in table, we have to use dataIndex instead of index,
+              otherwise we will use index.
+              https://stackoverflow.com/questions/49648270/how-to-define-index-in-angular-material-table
+            -->
+          {{ calculateIndex(index) }}
+        </td>
+      </ng-container>
+
+      <!-- FIRST NAME -->
+      <ng-container matColumnDef="firstName">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          First Name
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let contact">
+          {{ contact.firstName }}
+        </td>
+      </ng-container>
+
+      <!-- LAST NAME -->
+      <ng-container matColumnDef="lastName">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          Last Name
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let contact">
+          {{ contact.lastName }}
+        </td>
+      </ng-container>
+
+      <!-- ALIAS -->
+      <ng-container matColumnDef="alias">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          Alias
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let contact">
+          {{ contact.alias }}
+        </td>
+      </ng-container>
+
+      <!-- GROUP -->
+      <ng-container matColumnDef="group">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          Group
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let contact">
+          {{ contact.group }}
+        </td>
+      </ng-container>
+
+      <!-- MAIN PHONE -->
+      <ng-container matColumnDef="mainPhone">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          Main Phone
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let contact">
+          {{ contact.phones[0] }}
+        </td>
+      </ng-container>
+
+      <!-- MAIN EMAIL -->
+      <ng-container matColumnDef="mainEmail">
+        <th
+            mat-header-cell
+            mat-sort-header
+            *matHeaderCellDef>
+          Main Email
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let contact">
+          {{ contact.emails[0] }}
+        </td>
+      </ng-container>
+
+      <!-- EXPANDED/DETAILS FOR PERSON -->
+      <ng-container matColumnDef="expandedContact">
         <td
             mat-cell
             [ngClass]="{
@@ -141,13 +213,13 @@
 */ -->
       <tr
           mat-header-row
-          *matHeaderRowDef="displayedColumnsLabels()">
+          *matHeaderRowDef="displayedColumns">
       </tr>
       <tr
           class="table-rows"
           (click)="expandContact(contact)"
           mat-row
-          *matRowDef="let contact; columns: displayedColumnsLabels();">
+          *matRowDef="let contact; columns: displayedColumns">
       </tr>
       <tr
         mat-row
@@ -169,4 +241,6 @@
 </div>
 
 
-
+<div *ngFor="let name of showNice()" >
+  {{ name }}
+</div>

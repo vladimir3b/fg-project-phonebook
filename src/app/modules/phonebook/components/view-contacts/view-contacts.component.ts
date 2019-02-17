@@ -66,14 +66,15 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
  *    ├─┘├┬┘│ │├─┘├┤ ├┬┘ │ │├┤ └─┐
  *    ┴  ┴└─└─┘┴  └─┘┴└─ ┴ ┴└─┘└─┘
  */
-  private _watchers: Array<Subscription>;
   @ViewChild(MatPaginator) private _paginator: MatPaginator;
   @ViewChild(MatSort) private _sort: MatSort;
+  private _watchers: Array<Subscription>;
   private _expandedContact: IContactModel | null;
+  public _contactsOnTheCurrentPage: Array<IContactModel>;
   public selection: SelectionModel<IContactModel>;
   public deviceType: devicesType;
   public contacts: MatTableDataSource<IContactModel>;
-  public displayedColumns: Array<{label: string, caption:string}>;
+  public displayedColumns: Array<string>;
 
 
 /***
@@ -108,82 +109,17 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
       this.deviceType = deviceType;
       switch (this.deviceType) {
         case 'mobile':
-          this.displayedColumns = [
-            {
-              label: 'select',
-              caption: 'Select'
-            },
-            {
-              label: 'firstName',
-              caption: 'First Name'
-            },
-            {
-              label: 'lastName',
-              caption: 'Last Name'
-            },
-          ];
+          this.displayedColumns = [ 'select', 'firstName', 'lastName' ];
           break;
         case 'tablet':
-          this.displayedColumns = [
-            {
-              label: 'select',
-              caption: 'Select'
-            },
-            {
-              label: 'index',
-              caption: 'Index',
-            },
-            {
-              label: 'firstName',
-              caption: 'First Name'
-            },
-            {
-              label: 'lastName',
-              caption: 'Last Name'
-            },
-            {
-              label: 'mainPhone',
-              caption: 'Main Phone'
-            }
-          ];
+          this.displayedColumns = [ 'select', 'index', 'firstName', 'lastName', 'mainPhone' ];
           break;
         default:
-          this.displayedColumns = [
-            {
-              label: 'select',
-              caption: 'Select'
-            },
-            {
-              label: 'index',
-              caption: 'Index'
-            },
-            {
-              label: 'firstName',
-              caption: 'First Name'
-            },
-            {
-              label: 'lastName',
-              caption: 'Last Name'
-            },
-            {
-              label: 'alias',
-              caption: 'Alias'
-            },
-            {
-              label: 'group',
-              caption: 'Group'
-            },
-            {
-              label: 'mainPhone',
-              caption: 'Main Phone'
-            },
-            {
-              label: 'mainEmail',
-              caption: 'Main Email'
-            }
-          ];
+          this.displayedColumns = [ 'select', 'index', 'firstName', 'lastName', 'alias', 'group', 'mainPhone', 'mainEmail' ];
       }
     })));
+    this._watchers.push(this.contacts.connect()
+      .subscribe((persons: Array<IContactModel>) => this._contactsOnTheCurrentPage = persons));
     this.contacts.paginator = this._paginator;
     this.contacts.sort = this._sort;
   }
@@ -209,19 +145,6 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     return this._paginator.pageSize * this._paginator.pageIndex + localIndex + 1;
   }
 
-  public displayedColumnsLabels(): Array<string> {
-    return this.displayedColumns.map(column => column.label);
-  }
-
-  public detailsAboutContact(contact: IContactModel, label: string): string {
-    switch(label) {
-      // case 'index':  return `${this.calculateIndex(index)}`;
-      case 'mainPhone': return contact.phones[0];
-      case 'mainEmail': return contact.emails[0];
-      default: return contact[label];
-    }
-  }
-
   public expandContact(contact: IContactModel): void {
     if (contact === this._expandedContact) {
       this._expandedContact = null;
@@ -239,11 +162,15 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
   }
 
   public isAllSelected(): boolean {
-    return this.selection.selected.length === this.contacts.data.length;
+    return this.selection.selected.length === this._contactsOnTheCurrentPage.length;
   }
 
   public masterToggle(): void {
-    this.isAllSelected() ? this.selection.clear() : this.contacts.data.forEach(row => this.selection.select(row));
+    this.isAllSelected() ? this.selection.clear() : this._contactsOnTheCurrentPage.forEach(row => this.selection.select(row));
+  }
+
+  showNice(): Array<string> {
+    return  this._contactsOnTheCurrentPage.map((person) => `${person.firstName} ${person.lastName}`);
   }
 
 }
