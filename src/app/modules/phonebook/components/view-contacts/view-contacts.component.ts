@@ -146,11 +146,7 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
   }
 
   public expandContact(contact: IContactModel): void {
-    if (contact === this._expandedContact) {
-      this._expandedContact = null;
-    } else  {
-      this._expandedContact = contact;
-    }
+    this._expandedContact = (contact === this._expandedContact) ? null : contact;
   }
 
   public showExpanded(contact: IContactModel): 'expanded' | 'collapsed' {
@@ -161,16 +157,30 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     return this._expandedContact === contact;
   }
 
-  public isAllSelected(): boolean {
-    return this.selection.selected.length === this._contactsOnTheCurrentPage.length;
+  public currentPageIsAllSelected(): boolean {
+    let aux: boolean = true;
+    this._contactsOnTheCurrentPage.forEach((contact: IContactModel) => {
+      if (!this.selection.isSelected(contact)) {
+        aux = false;
+      }
+    })
+    return aux;
+  }
+
+  public currentPageHasValue(): boolean {
+    let aux: boolean = false;
+    this._contactsOnTheCurrentPage.forEach((contact: IContactModel) => {
+      if (this.selection.isSelected(contact)) {
+        aux = true;
+      }
+    })
+    return aux;
   }
 
   public masterToggle(): void {
-    this.isAllSelected() ? this.selection.clear() : this._contactsOnTheCurrentPage.forEach(row => this.selection.select(row));
-  }
-
-  showNice(): Array<string> {
-    return  this._contactsOnTheCurrentPage.map((person) => `${person.firstName} ${person.lastName}`);
+    this.currentPageIsAllSelected() ?
+      this._contactsOnTheCurrentPage.forEach(row => this.selection.deselect(row)) :
+      this._contactsOnTheCurrentPage.forEach(row => this.selection.select(row));
   }
 
 }

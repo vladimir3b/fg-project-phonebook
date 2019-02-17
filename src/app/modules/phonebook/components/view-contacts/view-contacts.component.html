@@ -61,8 +61,8 @@
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox
               (change)="$event ? masterToggle() : null"
-              [checked]="selection.hasValue() && isAllSelected()"
-              [indeterminate]="selection.hasValue() && !isAllSelected()">
+              [checked]="currentPageHasValue() && currentPageIsAllSelected()"
+              [indeterminate]="currentPageHasValue() && !currentPageIsAllSelected()">
           </mat-checkbox>
         </th>
         <td mat-cell *matCellDef="let row">
@@ -203,6 +203,23 @@
       </ng-container>
 
 
+      <ng-container matColumnDef="editContactsMenu">
+        <th
+            mat-header-cell
+            *matHeaderCellDef
+            [attr.colspan]="displayedColumns.length">
+          <mat-checkbox
+              (change)="$event ? masterToggle() : null"
+              [checked]="currentPageHasValue() && currentPageIsAllSelected()"
+              [indeterminate]="currentPageHasValue() && !currentPageIsAllSelected()">
+          </mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button color="accent" mat-icon-button><mat-icon>edit</mat-icon></button>
+          <button color="accent" mat-icon-button><mat-icon>share</mat-icon></button>
+          <button color="warn" mat-icon-button><mat-icon>delete</mat-icon></button>
+        </th>
+      </ng-container>
+
+
 <!-- /***
 *    ┌┬┐┌─┐┌┐ ┬  ┌─┐
 *     │ ├─┤├┴┐│  ├┤
@@ -212,6 +229,12 @@
 *    ┴└─└─┘└┴┘└─┘
 */ -->
       <tr
+        [fxHide]="!selection.hasValue()"
+        mat-header-row
+        *matHeaderRowDef="['editContactsMenu']">
+      </tr>
+      <tr
+          [fxHide]="selection.hasValue()"
           mat-header-row
           *matHeaderRowDef="displayedColumns">
       </tr>
@@ -240,7 +263,4 @@
   </div>
 </div>
 
-
-<div *ngFor="let name of showNice()" >
-  {{ name }}
-</div>
+{{ currentPageHasValue() }}
