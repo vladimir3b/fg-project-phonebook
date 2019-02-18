@@ -10,6 +10,7 @@ import { PhonebookLoadingAngularMaterialModule } from './phonebook.loaging-angul
 import { ViewContactComponent } from './components/view-contact/view-contact.component';
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
 import { PhonebookRoutingModule } from './phonebook.routing.module';
+import { ManageTabsService } from './services/manage-tabs.service';
 
 const LOADING_AND_EXPORTING = {
   declarations: [
@@ -37,6 +38,7 @@ const LOADING_AND_EXPORTING = {
   ],
   providers: [
     DeviceService,
+    ManageTabsService,
     FakeLoadingDataService
   ]
 })

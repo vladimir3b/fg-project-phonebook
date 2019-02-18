@@ -46,6 +46,7 @@ import { DeviceService } from '../../../root/services/device.service';
 import { FakeLoadingDataService } from './../../../../data/fake-data/fake-loading-data.service';
 import { IContactModel } from 'src/app/data/models/contact.model';
 import { devicesType } from '../../../root/models/types';
+import { ManageTabsService } from './../../services/manage-tabs.service';
 
 @Component({
   selector: 'fg-view-contacts',
@@ -84,6 +85,7 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
  */
   constructor(
       private _device: DeviceService,
+      private _manageTabs: ManageTabsService,
       private _fakeLoadingData: FakeLoadingDataService
   ) {
     this._expandedContact = null;
@@ -203,6 +205,14 @@ export class ViewContactsComponent implements OnInit, OnDestroy {
     this.currentPageIsAllSelected() ?
       this._contactsOnTheCurrentPage.forEach(row => this.selection.deselect(row)) :
       this._contactsOnTheCurrentPage.forEach(row => this.selection.select(row));
+  }
+
+  public editAll(): void {
+    console.log('aqui');
+    this._manageTabs.resetTabs();
+    this.selection.selected.forEach((contact: IContactModel) => {
+      this._manageTabs.addTab(contact);
+    });
   }
 
 }

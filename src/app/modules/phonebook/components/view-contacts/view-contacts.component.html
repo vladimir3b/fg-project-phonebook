@@ -187,6 +187,7 @@
         </td>
       </ng-container>
 
+      <!-- EXPAND BUTTON -->
       <ng-container matColumnDef="expandButton">
           <th
               mat-header-cell
@@ -236,8 +237,17 @@
               [checked]="currentPageHasValue() && currentPageIsAllSelected()"
               [indeterminate]="currentPageHasValue() && !currentPageIsAllSelected()">
           </mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button color="accent" mat-icon-button><mat-icon>edit</mat-icon></button>
-          <button color="accent" mat-icon-button><mat-icon>share</mat-icon></button>
+          <button
+              (click)="editAll()"
+              color="accent"
+              mat-icon-button>
+              <mat-icon >edit</mat-icon>
+          </button>
+          <button
+              color="accent"
+              mat-icon-button>
+            <mat-icon>share</mat-icon>
+          </button>
           <button color="warn" mat-icon-button><mat-icon>delete</mat-icon></button>
         </th>
       </ng-container>

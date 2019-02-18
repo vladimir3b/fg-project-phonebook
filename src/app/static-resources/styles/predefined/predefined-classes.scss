@@ -114,22 +114,16 @@
 }
 
 .mat-tab-labels {
-  background-color: $accent-color-light;
-}
-
-.mat-tab-header-pagination {
   background-color: $accent-color-dark;
 }
 
 .mat-tab-label-content {
-  color: $text-color-dark;
   font-weight: bolder;
 }
 
-.mat-tab-header-pagination-chevron {
-  color: $text-color-light !important;
+.mat-tab-body-wrapper {
+  height: 100%;
 }
-
 
 /***
  *    ┌─┐┌─┐┬─┐┌┬┐┌─┐
