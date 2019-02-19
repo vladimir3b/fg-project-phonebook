@@ -1,6 +1,10 @@
 import { IContactModel } from '../models/contact.model';
+import { groupType } from '../models/types';
 
-export const CONTACTS: Array<IContactModel> = [
+
+const GROUPS: Array<groupType> = ['family', 'friends', 'coworkers', 'acquaintance'];
+
+const CONTACTS: Array<IContactModel> = [
   {
     id: '5c5b66db8eef8a981816c1a7',
     firstName: 'Horn',
@@ -2350,3 +2354,9 @@ export const CONTACTS: Array<IContactModel> = [
     notes: 'Fugiat commodo non eu ad sint. Sunt velit non labore dolor ullamco laboris fugiat.'
   }
 ];
+
+
+export {
+  GROUPS,
+  CONTACTS
+}

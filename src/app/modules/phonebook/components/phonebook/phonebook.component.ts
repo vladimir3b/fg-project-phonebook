@@ -46,6 +46,7 @@ export class PhonebookComponent implements OnInit, OnDestroy {
   private _watchers: Array<Subscription>;
   public contactsTabs: Array<ITabItemModel>;
 
+
 /***
  *    ┌─┐┌─┐┌┐┌┌─┐┌┬┐┬─┐┬ ┬┌─┐┌┬┐┌─┐┬─┐
  *    │  │ ││││└─┐ │ ├┬┘│ ││   │ │ │├┬┘
@@ -54,6 +55,7 @@ export class PhonebookComponent implements OnInit, OnDestroy {
   constructor(private _manageTabs: ManageTabsService) {
     this._watchers = [];
   }
+
 
    /***
  *    ┬  ┬┌─┐┌─┐
@@ -75,10 +77,14 @@ export class PhonebookComponent implements OnInit, OnDestroy {
     this._watchers.forEach((watch:Subscription) => watch.unsubscribe());
   }
 
+
   /***
  *    ┌┬┐┌─┐┌┬┐┬ ┬┌─┐┌┬┐┌─┐
  *    │││├┤  │ ├─┤│ │ ││└─┐
  *    ┴ ┴└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
  */
+  public closeTab(tab: ITabItemModel): void {
+    this._manageTabs.deleteTab(tab);
+  }
 
 }

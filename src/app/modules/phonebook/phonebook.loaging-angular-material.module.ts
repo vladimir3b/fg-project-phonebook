@@ -13,7 +13,13 @@ import {
   MatSortModule,
   MatCheckboxModule,
   MatTabsModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSlideToggleModule,
+  MatOptionModule,
+  MatSelectModule,
 } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const LOADING_AND_EXPORTING = {
   declarations: [],
@@ -30,7 +36,13 @@ const LOADING_AND_EXPORTING = {
     MatSortModule,
     MatPaginatorModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSlideToggleModule,
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ]
 };
 

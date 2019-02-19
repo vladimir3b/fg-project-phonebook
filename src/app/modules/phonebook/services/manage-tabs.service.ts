@@ -77,8 +77,8 @@ export class ManageTabsService {
     this._newTabEvent();
   }
 
-  public deleteTab(contact: IContactModel): void {
-    this._contactTabs.splice(this._contactTabs.indexOf(this._createTab(contact)), 1 );
+  public deleteTab(tab: ITabItemModel): void {
+    this._contactTabs.splice(this._contactTabs.indexOf(tab), 1 );
     this._newTabEvent();
   }
 

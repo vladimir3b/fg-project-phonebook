@@ -28,7 +28,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 // MY IMPORTS
-import { genderType } from 'src/app/data/models/types';
+import { genderType } from '../../../../data/models/types';
 import { devicesType } from '../../../root/models/types';
 import { DeviceService } from '../../../root/services/device.service';
 

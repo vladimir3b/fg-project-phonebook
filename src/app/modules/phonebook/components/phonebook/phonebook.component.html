@@ -39,13 +39,18 @@
   </mat-tab>
   <mat-tab *ngFor="let tab of contactsTabs">
     <ng-template mat-tab-label>
-      {{ tab.caption }}
+      <span>
+        {{ tab.caption }}&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>
+      <button
+          (click)="closeTab(tab)"
+          mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
     </ng-template>
     <ng-template matTabContent>
       <mat-card fxFill class="container">
-        <pre>
-          {{ tab.data | json }}
-        </pre>
+        <fg-edit-contact [contact]="tab.data"></fg-edit-contact>
       </mat-card>
     </ng-template>
   </mat-tab>
